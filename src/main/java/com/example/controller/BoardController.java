@@ -70,6 +70,12 @@ public class BoardController {
 		}
 		return resultMap;
 	}
+	
+	@GetMapping("/login")
+	public ModelAndView login() throws Exception{
+		ModelAndView mv = new ModelAndView("/board/login");
+		return mv;
+	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody

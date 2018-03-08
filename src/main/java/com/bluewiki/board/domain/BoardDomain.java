@@ -1,4 +1,4 @@
-package com.example.domain;
+package com.bluewiki.board.domain;
 
 public class BoardDomain {
 	

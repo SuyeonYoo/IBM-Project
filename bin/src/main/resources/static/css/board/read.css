@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+input:-moz-read-only { /* For Firefox */
+    background-color: #ffffff !important;
+}
+
+textarea:-moz-read-only { /* For Firefox */
+    background-color: #ffffff !important;
+}
+
+input:read-only {
+    background-color: #ffffff !important;
+}
+
+textarea:read-only {
+    background-color: #ffffff !important;
+}

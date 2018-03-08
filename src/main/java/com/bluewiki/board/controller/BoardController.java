@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.bluewiki.board.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.domain.BoardDomain;
-import com.example.service.BoardService;
+import com.bluewiki.board.domain.BoardDomain;
+import com.bluewiki.board.service.BoardService;
 
 @Controller
 @RequestMapping("/board")
@@ -73,7 +73,7 @@ public class BoardController {
 	
 	@GetMapping("/login")
 	public ModelAndView login() throws Exception{
-		ModelAndView mv = new ModelAndView("/board/login");
+		ModelAndView mv = new ModelAndView("/login/login");
 		return mv;
 	}
 

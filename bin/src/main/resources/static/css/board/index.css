@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+textarea {
+   	resize: none;
+}
+
+.panel-footer {
+    background-color: #ffffff !important;
+    padding: 5px !important;
+}
+
+.content {
+		cursor: pointer;
+}
+

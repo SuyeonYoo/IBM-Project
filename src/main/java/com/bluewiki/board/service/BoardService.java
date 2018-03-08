@@ -1,8 +1,8 @@
-package com.example.service;
+package com.bluewiki.board.service;
 
 import java.util.List;
 
-import com.example.domain.BoardDomain;
+import com.bluewiki.board.domain.BoardDomain;
 
 public interface BoardService {
 

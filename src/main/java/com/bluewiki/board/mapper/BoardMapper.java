@@ -1,4 +1,4 @@
-package com.example.mapper;
+package com.bluewiki.board.mapper;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.example.domain.BoardDomain;
+import com.bluewiki.board.domain.BoardDomain;
 
 @Mapper
 public interface BoardMapper {

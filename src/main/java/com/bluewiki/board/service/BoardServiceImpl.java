@@ -1,13 +1,12 @@
-package com.example.service.impl;
+package com.bluewiki.board.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.domain.BoardDomain;
-import com.example.mapper.BoardMapper;
-import com.example.service.BoardService;
+import com.bluewiki.board.domain.BoardDomain;
+import com.bluewiki.board.mapper.BoardMapper;
 
 @Service
 public class BoardServiceImpl implements BoardService{

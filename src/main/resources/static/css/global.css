@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.cursor{
+   cursor:pointer;
+}
+
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+   border-right:0; 
+   box-shadow:0 0 0; 
+   border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.grayscale{
+   color: #777 !important; 
+}
+
+textarea{
+  resize:none;
+}
+
+
+.nav-padding {
+    padding-left: 50px;
+}
+
+.logo {
+    position: absolute;
+		left: 15px;
+    top: 6px;
+}
+
+.logo-text {
+		color: #444 !important;
+}

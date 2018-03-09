@@ -73,7 +73,13 @@ public class BoardController {
 	
 	@GetMapping("/login")
 	public ModelAndView login() throws Exception{
-		ModelAndView mv = new ModelAndView("/board/login");
+		ModelAndView mv = new ModelAndView("/common/login");
+		return mv;
+	}
+	
+	@GetMapping("/main")
+	public ModelAndView main() throws Exception{
+		ModelAndView mv = new ModelAndView("/common/main");
 		return mv;
 	}
 

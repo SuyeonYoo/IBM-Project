@@ -1,12 +1,13 @@
-package com.bluewiki.board.service;
+package com.bluewiki.board.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bluewiki.board.domain.BoardDomain;
 import com.bluewiki.board.mapper.BoardMapper;
+import com.bluewiki.board.service.BoardService;
+import com.bluewiki.board.vo.BoardVo;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -15,17 +16,17 @@ public class BoardServiceImpl implements BoardService{
 	BoardMapper boardMapper;
 	
 	@Override
-	public BoardDomain selectBaord(int id) {
+	public BoardVo selectBaord(int id) {
 		return boardMapper.selectBaord(id);
 	}
 	
 	@Override
-	public void insertBoard(BoardDomain boardDomain) {
+	public void insertBoard(BoardVo boardDomain) {
 		boardMapper.insertBoard(boardDomain);
 	}
 	
 	@Override
-	public void updateBoard(BoardDomain boardDomain) {
+	public void updateBoard(BoardVo boardDomain) {
 		boardMapper.updateBoard(boardDomain);
 	}
 	
@@ -35,7 +36,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public List<BoardDomain> selectBoardList() {
+	public List<BoardVo> selectBoardList() {
 		return boardMapper.selectBoardList();
 	}
 	

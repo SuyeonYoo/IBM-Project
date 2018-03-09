@@ -1,6 +1,6 @@
-package com.bluewiki.board.domain;
+package com.bluewiki.board.vo;
 
-public class BoardDomain {
+public class BoardVo {
 	
 	int id;
 	String title;

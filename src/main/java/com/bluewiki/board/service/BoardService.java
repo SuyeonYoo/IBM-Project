@@ -2,18 +2,18 @@ package com.bluewiki.board.service;
 
 import java.util.List;
 
-import com.bluewiki.board.domain.BoardDomain;
+import com.bluewiki.board.vo.BoardVo;
 
 public interface BoardService {
 
-	public BoardDomain selectBaord(int id);
+	public BoardVo selectBaord(int id);
 	
-	public void insertBoard(BoardDomain boardDomain);
+	public void insertBoard(BoardVo boardDomain);
 	
-	public void updateBoard(BoardDomain boardDomain);
+	public void updateBoard(BoardVo boardDomain);
 	
 	public void deleteBoard(int id);
 	
-	public List<BoardDomain> selectBoardList();
+	public List<BoardVo> selectBoardList();
 	
 }

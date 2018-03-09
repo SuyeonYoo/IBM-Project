@@ -7,7 +7,7 @@
 </head>
 <body>
 	<!-- Setting -->
-	<jsp:include page="../layout/libarary.jsp"></jsp:include>
+	<jsp:include page="../layout/library.jsp"></jsp:include>
 
 	<!-- posts area -->
 	<div class="container" style="margin-top: 80px">

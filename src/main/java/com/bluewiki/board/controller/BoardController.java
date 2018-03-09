@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bluewiki.board.domain.BoardDomain;
 import com.bluewiki.board.service.BoardService;
+import com.bluewiki.board.vo.BoardVo;
 
 @Controller
 @RequestMapping("/board")
@@ -30,14 +30,14 @@ public class BoardController {
 	@GetMapping("/index")
 	public ModelAndView board() throws Exception{
 		ModelAndView mv = new ModelAndView("/board/index");
-		List<BoardDomain> resultList = new ArrayList<>();
+		List<BoardVo> resultList = new ArrayList<>();
 		resultList = boardService.selectBoardList();
 		mv.addObject("boardList", resultList);
 		return mv;
 	}
 	
 	@PostMapping("/create")
-	public String newPost(BoardDomain boardDomain) throws Exception{
+	public String newPost(BoardVo boardDomain) throws Exception{
 		
 		boardService.insertBoard(boardDomain);
 		
@@ -46,7 +46,7 @@ public class BoardController {
 	
 	@PostMapping("/update")
 	@ResponseBody
-	public Map<String, Object> updatePost(BoardDomain boardDomain) throws Exception{
+	public Map<String, Object> updatePost(BoardVo boardDomain) throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
 			boardService.updateBoard(boardDomain);
@@ -60,7 +60,7 @@ public class BoardController {
 	
 	@PostMapping("/delete")
 	@ResponseBody
-	public Map<String, Object> deletePost(BoardDomain boardDomain) throws Exception{
+	public Map<String, Object> deletePost(BoardVo boardDomain) throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
 			boardService.deleteBoard(boardDomain.getId());
@@ -70,19 +70,13 @@ public class BoardController {
 		}
 		return resultMap;
 	}
-	
-	@GetMapping("/login")
-	public ModelAndView login() throws Exception{
-		ModelAndView mv = new ModelAndView("/login/login");
-		return mv;
-	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Object> read(@PathVariable int id) throws Exception{
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
-			BoardDomain result = boardService.selectBaord(id);
+			BoardVo result = boardService.selectBaord(id);
 			resultMap.put("result", result);
 			
 			resultMap.put("localPath", localPath);

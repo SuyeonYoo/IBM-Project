@@ -10,7 +10,7 @@
 </head>
 <body>
 	<!-- Set -->
-	<jsp:include page="../layout/setting.jsp"></jsp:include>
+	<jsp:include page="../layout/library.jsp"></jsp:include>
 	
 	<div class="slinput">
 	    <i class="fa fa-search left-icon"></i> 

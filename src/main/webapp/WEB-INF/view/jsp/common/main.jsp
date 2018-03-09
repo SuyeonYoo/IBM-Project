@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!-- Setting -->
-	<jsp:include page="../layout/libarary.jsp"></jsp:include>
+	<jsp:include page="../layout/library.jsp"></jsp:include>
 	<!-- Navbar -->
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
 	

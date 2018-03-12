@@ -7,11 +7,6 @@
 </head>
 <script type="text/javascript">
 
-// 회원가입 페이지로 이동
-function moveSignUpPage() {
-	location.href = "/common/signUp";
-}
-
 </script>
 <body>
 	<!-- Setting -->
@@ -25,16 +20,15 @@ function moveSignUpPage() {
 				<span class="align-bottom" style="font-size: 70px;">BlueWiki</span>
 			</div>
 			<br> <br>
-			<!-- <div class="col-xs-12">
-				<h4>&nbsp;Looks like you are new today</h4>
-				<h1 style="margin-top:0px !important;"><b>Recheck yoru Id or Sign up</b></h1>
-			</div> -->
 			<div class="col-xs-12">
-				<p style="font-size: 40px;">Sign in</p>
+				<p style="font-size: 40px;">Sign up</p>
 				<p style="font-size: 20px; margin-left: 5px;">with your <span style="color: #3CAEFF">w3<b>id</b></span></p>
 			</div>
 
 			<div class="col-xs-12" style="margin-top: 30px; margin-left: 5px;">
+				<p>nickname</p>
+				<input type="text" class="form-control" >
+				<br>
 				<p>w3<b>id</b></p>
 				<input type="text" class="form-control" value="@kr.ibm.com">
 				<br>
@@ -42,14 +36,10 @@ function moveSignUpPage() {
 				<input type="password" class="form-control">
 			</div>
 
-			<div class="col-xs-12" style="margin-top: 10px; margin-left: 30px;">
-				<input type="checkbox" class="form-check-input" id="exampleCheck1">Log on automatically for the next time
-			</div>
-
 			<div class="col-xs-12" style="margin-top: 30px; margin-left: 5px;">
 				<center>
-					<button type="button" class="btn btn-outline-primary" style="margin-right:30px">Sign In</button>
-					<button type="button" class="btn btn-outline-secondary" onclick="moveSignUpPage()">Sign Up</button>
+					<button type="button" class="btn btn-outline-primary" style="margin-right:30px">Sign Up</button>
+					<button type="button" class="btn btn-outline-secondary" onclick="moveSignUpPage()">Cancel</button>
 				</center>
 			</div>
 			

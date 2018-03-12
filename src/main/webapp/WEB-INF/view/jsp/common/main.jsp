@@ -12,5 +12,23 @@
 	<!-- Navbar -->
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
 	
-</body>
+	<div class="container">
+	<!-- 본문 -->
+		<div class="col-xs-9 box">
+		sadfasdf<br>
+		sadfasdf<br>
+		sadfasdf<br>
+		sadfasdf<br>
+		sadfasdf<br>
+		sadfasdf<br>
+		
+		</div>
+	<!-- 오른쪽 페이지 -->
+		<div class="col-xs-3">
+		</div>
+	
+	</div>
+	
+	
+</body> 
 </html>

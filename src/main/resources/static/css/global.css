@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+html body{
+	background-color:#f8f8f8;
+}
+
+.container{
+	background-color:#ffffff;
+}
+
 .cursor{
    cursor:pointer;
 }
@@ -38,4 +46,12 @@ textarea{
 
 .logo-text {
 		color: #444 !important;
+}
+
+.box {
+	border-right: 1px solid gray; 
+}
+
+.nav-none-margin{
+	margin: 0px !important;
 }

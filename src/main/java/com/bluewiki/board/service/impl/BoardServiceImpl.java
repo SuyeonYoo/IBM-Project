@@ -15,29 +15,4 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	BoardMapper boardMapper;
 	
-	@Override
-	public BoardVo selectBaord(int id) {
-		return boardMapper.selectBaord(id);
-	}
-	
-	@Override
-	public void insertBoard(BoardVo boardDomain) {
-		boardMapper.insertBoard(boardDomain);
-	}
-	
-	@Override
-	public void updateBoard(BoardVo boardDomain) {
-		boardMapper.updateBoard(boardDomain);
-	}
-	
-	@Override
-	public void deleteBoard(int id) {
-		boardMapper.deleteBoard(id);
-	}
-	
-	@Override
-	public List<BoardVo> selectBoardList() {
-		return boardMapper.selectBoardList();
-	}
-	
 }

@@ -13,7 +13,7 @@
 <nav class="navbar bg-white">
    <div class="container-fluid text-right">
      <ul class="nav navbar-nav navbar-right">
-       <li><a class="cursor"><i class="fas fa-user grayscale cursor"></i>&nbsp;</a></li>
+       <li><a href=""><i class="fas fa-user grayscale"></i>&nbsp;</a></li>
      </ul>
    </div>
 </nav>

@@ -26,5 +26,16 @@ public class BoardController {
 	BoardService boardService;
 	
 	String localPath = "C:/attachments/";
+	
+	/**
+	 * load main page
+	 * @param 
+	 * @return
+	 */
+	@GetMapping("/main")
+	public ModelAndView main() throws Exception{
+		ModelAndView mv = new ModelAndView("/board/main");
+		return mv;
+	}
 
 }

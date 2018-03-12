@@ -37,14 +37,4 @@ public class CommonController {
 		return mv;
 	}
 	
-	/**
-	 * load main page
-	 * @param 
-	 * @return
-	 */
-	@GetMapping("/main")
-	public ModelAndView main() throws Exception{
-		ModelAndView mv = new ModelAndView("/common/main");
-		return mv;
-	}
 }

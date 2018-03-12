@@ -10,7 +10,7 @@
 <jsp:include page="../layout/library.jsp"></jsp:include>
 
 <!-- navbar -->
-<nav class="navbar navbar-default nav-none-margin">
+<nav class="navbar navbar-default">
    <div class="container-fluid text-right">
      <div class="navbar-header">
        <img class="logo" src="/img/login_logo.png" width="30" height="30" class="d-inline-block align-top cursor" alt="">

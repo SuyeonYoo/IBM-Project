@@ -11,6 +11,9 @@
 	<!-- Set -->
 	<jsp:include page="../layout/library.jsp"></jsp:include>
 	
+	<!-- Navbar -->
+	<jsp:include page="../search/search_main_navbar.jsp"></jsp:include>
+	
 	<div class="slinput">
 	    <i class="fa fa-search left-icon"></i> 
 	    <input  placeholder="Search here" /> 

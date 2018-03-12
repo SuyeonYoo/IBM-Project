@@ -6,7 +6,7 @@
 <title>BLUEWIKI</title>
 </head>
 <body>
-	<!-- Set -->
+<!-- Set -->
 <jsp:include page="../layout/library.jsp"></jsp:include>
 
 <!-- navbar -->

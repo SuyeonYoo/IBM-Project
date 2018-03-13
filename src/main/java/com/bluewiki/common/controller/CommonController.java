@@ -37,4 +37,14 @@ public class CommonController {
 		return mv;
 	}
 	
+	/**
+	 * load login page
+	 * @param 
+	 * @return
+	 */
+	@GetMapping("/signUp")
+	public ModelAndView signUp() throws Exception{
+		ModelAndView mv = new ModelAndView("/common/signUp");
+		return mv;
+	}
 }

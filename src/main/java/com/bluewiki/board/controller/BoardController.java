@@ -33,13 +33,13 @@ public class BoardController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{no}", method = RequestMethod.GET)
 	@ResponseBody
-	public JSONObject selectBoardById(@PathVariable int id) throws Exception{
+	public JSONObject selectBoardByNo(@PathVariable int no) throws Exception{
 		JSONObject result = new JSONObject();
 		
 		try {
-			result.put("result", boardService.selectBoard(id));
+			result.put("result", boardService.selectBaordByNo(no));
 			result.put("rsltMsg", "success");
 			
 		} catch (Exception e) {

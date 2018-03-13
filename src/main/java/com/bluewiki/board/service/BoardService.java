@@ -4,5 +4,5 @@ import com.bluewiki.board.vo.BoardVo;
 
 public interface BoardService {
 	
-	public BoardVo selectBoard(int id);
+	public BoardVo selectBaordByNo(int no);
 }

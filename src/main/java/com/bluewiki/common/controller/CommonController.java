@@ -31,9 +31,9 @@ public class CommonController {
 	 * @param 
 	 * @return
 	 */
-	@GetMapping("/login")
+	@GetMapping("/signin")
 	public ModelAndView login() throws Exception{
-		ModelAndView mv = new ModelAndView("/common/login");
+		ModelAndView mv = new ModelAndView("/common/signin");
 		return mv;
 	}
 	
@@ -42,9 +42,9 @@ public class CommonController {
 	 * @param 
 	 * @return
 	 */
-	@GetMapping("/signUp")
+	@GetMapping("/signup")
 	public ModelAndView signUp() throws Exception{
-		ModelAndView mv = new ModelAndView("/common/signUp");
+		ModelAndView mv = new ModelAndView("/common/signup");
 		return mv;
 	}
 }

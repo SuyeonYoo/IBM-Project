@@ -15,4 +15,9 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	BoardMapper boardMapper;
 	
+	public BoardVo selectBoard (int id) {
+
+		return boardMapper.selectBaord(id);
+	}
+	
 }

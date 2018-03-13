@@ -14,16 +14,21 @@
 	<!-- Navbar -->
 	<jsp:include page="../search/search_main_navbar.jsp"></jsp:include>
 	
-	<div class="row" style="text-align: center">
-		<img class="align-bottom" src="/img/login_logo.PNG" style="vertical-align: bottom; height: 100px"> 
-		<span class="align-bottom" style="font-size: 70px;">BlueWiki</span>
-	</div>
-			
-	<div style="margin-top: 30px; text-align: center">
-	    <input  placeholder="Search here" /> 
-	    <i class="fa fa-search right-icon"></i> 
+	<div class="col-xs-6 col-xs-offset-3" style="text-align: center; margin-top:100px; margin-bottom:20px;">
+		<img class="align-bottom" src="/img/login_logo.PNG" style="vertical-align: bottom; height: 75px"> 
+		<span class="align-bottom" style="font-size: 50px; margin-left:5px">BlueWiki</span>
 	</div>
 	
+	<form class="col-xs-6 col-xs-offset-3" action="#">
+    	<div class="input-group stylish-input-group">
+      	<input type="text" class="form-control"  placeholder="Search" >
+        	<span class="input-group-addon">
+          	<button type="submit">
+            <i class="fas fa-search grayscale"></i>
+            </button>  
+           </span>
+      </div>
+    </form>
 	
 </body>
 </html>

@@ -6,8 +6,6 @@
 <title>BLUEWIKI</title>
 </head>
 <body>
-	<!-- Setting -->
-	<jsp:include page="../layout/library.jsp"></jsp:include>
 	<!-- Navbar -->
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
 	

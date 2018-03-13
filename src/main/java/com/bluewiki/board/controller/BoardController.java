@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,10 +33,21 @@ public class BoardController {
 	 * @param 
 	 * @return
 	 */
-	@GetMapping("/main")
-	public ModelAndView main() throws Exception{
-		ModelAndView mv = new ModelAndView("/board/main");
-		return mv;
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public JSONObject selectBoardById(@PathVariable int id) throws Exception{
+		JSONObject result = new JSONObject();
+		
+		try {
+			result.put("result", boardService.selectBoard(id));
+			result.put("rsltMsg", "success");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.put("rsltMsg", "fail");
+		}
+		
+		return result;
 	}
 
 }

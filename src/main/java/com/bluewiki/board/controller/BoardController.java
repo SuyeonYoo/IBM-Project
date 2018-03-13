@@ -1,11 +1,6 @@
 package com.bluewiki.board.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +24,39 @@ public class BoardController {
 	String localPath = "C:/attachments/";
 	
 	/**
-	 * load main page
+	 * load search result page
+	 * @param 
+	 * @return
+	 */
+	@GetMapping("/main")
+	public ModelAndView mainPage() throws Exception{
+		ModelAndView mainPage = new ModelAndView("/board/main");
+		
+		return mainPage;
+	}
+	
+	/**
+	 * load search box
+	 * @param 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@PostMapping("/search")
+	@ResponseBody
+	public JSONObject selectBoardByTitle(String title) throws Exception{
+		JSONObject result = new JSONObject();
+		try {
+			result.put("resultList", boardService.selectBaordByTitle(title));
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
+		return result;
+	}
+	
+	/**
+	 * load search result page
 	 * @param 
 	 * @return
 	 */

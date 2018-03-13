@@ -15,6 +15,12 @@ import com.bluewiki.board.vo.BoardVo;
 @Mapper
 public interface BoardMapper {
 	
+	@Select("SELECT no, title, state "
+	+ "FROM BOARD "
+	+ "WHERE title LIKE #{title} LIMIT 5")
+public List<BoardVo> selectBaordByTitle(@Param("title") String title);
+	
+	
 	@Select("SELECT no, title, content, state"
 			+ "DATE_FORMAT(reg_date, '%Y-%m-%d') reg_date, "
 			+ "DATE_FORMAT(reg_time, '%H:%i:%s') reg_time, "

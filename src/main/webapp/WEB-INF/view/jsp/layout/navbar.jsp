@@ -6,6 +6,29 @@
 <title>BLUEWIKI</title>
 <!-- Set -->
 <jsp:include page="../layout/library.jsp"></jsp:include>
+
+<script>
+$( document ).ready(function() {
+	$("#search").keyup(function(){
+		var title = $("[name=title]").val();
+		var data = {"title" : title};
+		
+		$.ajax({
+			type : 'POST',
+      url : '/board/search',
+      data : data,
+      success:function(result){
+      	var str = "";
+      	
+				str = result.resultList[1].title;
+
+      }
+  })
+	});
+});
+
+</script>
+
 </head>
 <body>
 
@@ -37,14 +60,20 @@
        <li><a class="cursor"><i class="fas fa-sign-out-alt grayscale cursor"></i></a></li>
      </ul>
     
-    <form class="navbar-form navbar-right" action="#">
+    <form class="navbar-form navbar-right" id="searchtxt" action="/board/search">
     	<div class="input-group stylish-input-group">
-      	<input type="text" class="form-control"  placeholder="Search" >
-        	<span class="input-group-addon">
-          	<button type="submit">
-            <i class="fas fa-search grayscale"></i>
-            </button>  
-           </span>
+      	<!-- <input type="text" class="form-control" id="search"  placeholder="Search" name="title"> -->
+				<input list="rcmd_Searchtxt" class="form-control" id="searchcc" placeholder="Search" name="title" autocomplete="on">
+				<datalist id = "rcmd_Searchtxt">
+					<option value="Internet Explorer">
+			    <option value="우안">
+			    <option value="Chrome">
+			    <option value="Opera">
+			    <option value="Safari">
+				</datalist>
+				<span class="input-group-addon">
+        	<button type="submit"> <i class="fas fa-search grayscale"></i></button>  
+         </span>
       </div>
     </form>
     

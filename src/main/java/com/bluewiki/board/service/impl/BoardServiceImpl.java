@@ -15,6 +15,13 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	BoardMapper boardMapper;
 	
+	public List<BoardVo> selectBaordByTitle (String title) {
+		
+		title = title+"%";
+				
+		return boardMapper.selectBaordByTitle(title);
+	}
+	
 	public BoardVo selectBaordByNo (int no) {
 
 		return boardMapper.selectBaordByNo(no);

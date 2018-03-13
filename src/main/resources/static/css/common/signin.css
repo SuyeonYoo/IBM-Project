@@ -45,3 +45,13 @@ body {
 .btnSignup {
 	width: 49%;
 }
+
+.inputEmail {
+	width: 78%;
+    float: left;
+    padding-right: 7px;
+}
+
+.guideTxt {
+	margin-top: 5%;
+}

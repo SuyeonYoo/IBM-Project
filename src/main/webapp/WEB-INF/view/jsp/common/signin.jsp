@@ -6,7 +6,7 @@
 <title>BLUEWIKI</title>
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/css/common/signin.css">
-</head>
+<script src="/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 
 // 회원가입 페이지로 이동
@@ -15,17 +15,17 @@ function moveSignUpPage() {
 }
 
 </script>
+</head>
 <body>
 	<!-- Setting -->
 	<jsp:include page="../layout/library.jsp"></jsp:include>
 
 	<!-- posts area -->
 	<div class="container">
-		<form class="form-signin">
+		<form class="form-signin" method="POST" onsubmit="return false;">
 			<div class="row">
-				<p class="logoTxt text-center">BlueWiki</p>
+				<p class="logoTxt text-center">BlueWiki ; Sign in</p>
 			</div>
-			<h1 class="h4 mb-3 font-weight-normal text-left">Sign In</h1>
 			
 			<div class="form-label-group">
 		        <input type="email" id="inputEmail" class="form-control" placeholder="w3id address (abc@kr.ibm.com)" required autofocus>

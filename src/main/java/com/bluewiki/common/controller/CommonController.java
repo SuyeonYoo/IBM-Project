@@ -1,9 +1,16 @@
 package com.bluewiki.common.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bluewiki.common.service.SearchService;
@@ -27,7 +34,7 @@ public class CommonController {
 	}
 	
 	/**
-	 * load login page
+	 * load signin page
 	 * @param 
 	 * @return
 	 */
@@ -38,7 +45,7 @@ public class CommonController {
 	}
 	
 	/**
-	 * load login page
+	 * load signup page
 	 * @param 
 	 * @return
 	 */
@@ -46,5 +53,21 @@ public class CommonController {
 	public ModelAndView signUp() throws Exception{
 		ModelAndView mv = new ModelAndView("/common/signup");
 		return mv;
+	}
+	
+	/**
+	 * load signup page
+	 * @param 
+	 * @return
+	 */
+	@GetMapping("/checkExistedId")
+	@ResponseBody
+	public ResponseEntity<String> checkExistedId(@RequestParam Map<String, Object> paramMap) throws Exception{
+		String resultData = "";
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=UTF-8");
+		
+		return new ResponseEntity<String>(resultData,responseHeaders,HttpStatus.OK);
 	}
 }

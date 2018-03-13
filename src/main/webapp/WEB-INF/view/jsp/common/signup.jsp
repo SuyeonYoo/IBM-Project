@@ -6,70 +6,112 @@
 <title>BLUEWIKI</title>
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/css/common/signin.css">
-</head>
+<script src="/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 
-// 회원가입 페이지로 이동
-function moveSignInPage() {
-	location.href = "/common/login";
-}
-
-// 회원가입
-function signUp() {
+	$(document).ready(function() {
+		//$("#pwGroup").hide();
+		//$("#btnSignup").attr("disabled","disabled");
+	});
 	
-	if (checkInput()) {
+	function checkExId() {
 		
-	}
-}
-
-// 회원가입
-function checkInput() {
-	
-	var usrNm = $("#usrNm").val();
-	var usrId = $("#usrId").val();	
-	var usrPw = $("#usrPw").val();
-	
-	if (usrNm == null || usrNm == "") {
+		var usrId = $("#usrId").val();
+		var idArray = usrId.split("@");
 		
-		$("#myModal").find(".modal-body").text("닉네임을 입력해주세요.");
-		$("#myModal").modal();
-	} else if (usrId == null || usrId == "") {
-		$("#myModal").find(".modal-body").text("이메일을 입력해주세요.");
-		$("#myModal").modal();
-	} else if (usrPw == null || usrPw == "") {
-		$("#myModal").find(".modal-body").text("비밀번호를 입력해주세요.");
-		$("#myModal").modal();
+		if (idArray[1] != "kr.ibm.com") {
+			$("#myModal").find(".modal-body").text("이메일을 형식에 맞춰 입력해주세요.\n(abc@kr.ibm.com)");
+			$("#myModal").modal();
+		} else {
+			/* $.ajax({
+	        url : "/common/checkExistedId",
+	        type : 'POST',
+	        data : {
+	        	searchText : searchText,
+	        },
+	        dataType : 'html',
+	        success: function(data){
+	        	$("#buddyGroupDiv").html("");
+	        	$("#buddyGroupDiv").append(data);
+	        }
+	    });	 */	
+		}
 	}
 	
-}
+	// 로그인 페이지로 이동
+	function moveSignInPage() {
+		location.href = "/common/signin";
+	}
+	
+	// 회원가입
+	function signUp() {
+		
+		if (checkInput()) {
+			
+		}
+	}
+	
+	// 회원가입
+	function checkInput() {
+		
+		var usrId = $("#usrId").val();	
+		var usrPw = $("#usrPw").val();
+		var usrPwRe = $("#usrPwRe").val();
+		
+		if (usrId == null || usrId == "") {
+			$("#myModal").find(".modal-body").text("이메일을 입력해주세요.");
+			$("#myModal").modal();
+		} else if (usrPw == null || usrPw == "") {
+			$("#myModal").find(".modal-body").text("비밀번호를 입력해주세요.");
+			$("#myModal").modal();
+		} else if (usrPwRe == null || usrPwRe == "") {
+			$("#myModal").find(".modal-body").text("비밀번호를 재입력해주세요.");
+			$("#myModal").modal();
+		}
+		
+	}
 
 </script>
+</head>
 <body>
 	<!-- Setting -->
-	<jsp:include page="../layout/library.jsp"></jsp:include>
-
+	<jsp:include page="../layout/library.jsp"/>
 	<!-- posts area -->
 	<div class="container">
-		<form class="form-signin">
+		<form class="form-signin" method="POST" onsubmit="return false;">
+			
 			<div class="row">
-				<p class="logoTxt text-center">BlueWiki</p>
+				<p class="logoTxt text-center">BlueWiki ; Sign up</p>
+				<br/>
 			</div>
-			<h1 class="h4 mb-3 font-weight-normal text-left">Sign up</h1>
 			
 			<div class="form-label-group">
-		        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+				<div class="inputEmail">
+					<input type="email" id="usrId" class="form-control" placeholder="w3id address (abc@kr.ibm.com)">
+				</div>
+		    	<button class="btn btn-outline-info" onclick="checkExId()">중복확인</button>
 	        </div>
-		
-	      	<div class="form-label-group">
-		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-	      	</div>
-		
-		    <div class="checkbox mb-3">
-		        <label>
-		        	<input type="checkbox" value="remember-me"> Remember me
-		        </label>
-		    </div>
-		    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+	        
+	        <div class="form-label-group" id="idChecking">
+	        	<h5 class="guideTxt"> <a href="" onclick="" >IMBer 인증하기</a><small> 블루위키는 우리만의 공간이잖아요 ;)</small></h5>
+				<div class="inputEmail">
+					<input type="email" id="chkNum" class="form-control" placeholder="w3id address (abc@kr.ibm.com)">
+				</div>
+		    	<button class="btn btn-outline-info" onclick="checkExId()">인증확인</button>
+	        </div>
+	        
+	        <div id="pwGroup">
+	        	<div class="form-label-group">
+			        <input type="password" id="usrPw" class="form-control" placeholder="Password">
+		      	</div>
+		      	
+		      	<div class="form-label-group">
+			        <input type="password" id="usrPwRe" class="form-control" placeholder="Re-enter Password">
+		      	</div>
+	        </div>
+		    
+		    <button class="btn btn-primary btnSignin" type="submit" id="btnSignup">Sign Up</button>
+		    <button class="btn btnSignup" onclick="moveSignInPage();">Cancel</button>
 		</form>
 	</div>
 	

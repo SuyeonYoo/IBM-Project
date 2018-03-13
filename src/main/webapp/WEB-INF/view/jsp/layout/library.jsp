@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
 
 <!-- Bootstarp 4 -->
 <!-- <link rel="stylesheet" href="/lib/bootstrap-core/css/bootstrap.min.css">

@@ -27,7 +27,7 @@ public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 			+ "sec_state, witer, cnt_like, third_cate_id"
 	+ "FROM BOARD "
 	+ "WHERE id = #{id}")
-public BoardVo selectBaordByNo(@Param("no") int no);
+	public BoardVo selectBaordByNo(@Param("no") int no);
 	
 	
 }

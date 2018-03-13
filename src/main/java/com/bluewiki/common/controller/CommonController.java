@@ -68,6 +68,8 @@ public class CommonController {
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=UTF-8");
 		
+		int usrCnt = searchService.selectExistedId((String)paramMap.get("usrId"));
+		
 		return new ResponseEntity<String>(resultData,responseHeaders,HttpStatus.OK);
 	}
 }

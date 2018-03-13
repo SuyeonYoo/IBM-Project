@@ -23,18 +23,18 @@
 			$("#myModal").find(".modal-body").text("이메일을 형식에 맞춰 입력해주세요.\n(abc@kr.ibm.com)");
 			$("#myModal").modal();
 		} else {
-			/* $.ajax({
-	        url : "/common/checkExistedId",
-	        type : 'POST',
-	        data : {
-	        	searchText : searchText,
-	        },
-	        dataType : 'html',
-	        success: function(data){
-	        	$("#buddyGroupDiv").html("");
-	        	$("#buddyGroupDiv").append(data);
-	        }
-	    });	 */	
+			
+			$.ajax({
+		        url : "/common/checkExistedId",
+		        type : 'POST',
+		        data : {
+		        	usrId : usrId,
+		        },
+		        success: function(data){
+		        	$("#myModal").find(".modal-body").text(data.resultData);
+					$("#myModal").modal();
+		        }
+	    	});
 		}
 	}
 	
@@ -93,7 +93,7 @@
 	        </div>
 	        
 	        <div class="form-label-group" id="idChecking">
-	        	<h5 class="guideTxt"> <a href="" onclick="" >IMBer 인증하기</a><small> 블루위키는 우리만의 공간이잖아요 ;)</small></h5>
+	        	<h5 class="guideTxt"> <a href="" onclick="" >IBMer 인증하기</a><small> 블루위키는 우리만의 공간이잖아요 ;)</small></h5>
 				<div class="inputEmail">
 					<input type="email" id="chkNum" class="form-control" placeholder="w3id address (abc@kr.ibm.com)">
 				</div>

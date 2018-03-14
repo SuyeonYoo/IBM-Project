@@ -23,8 +23,8 @@ $( document ).ready(function() {
 				for (var i=0; i < result.resultList.length; i++){
 					$('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].title+"'>");
 				}
-					var e = jQuery.Event( "keydown", { keyCode: 40 } ); 
-					$("#search").trigger(e);
+					/* var e = jQuery.Event( "keydown", { keyCode: 40 } ); 
+					$("#search").trigger(e); */
 					/* e.preventDefault(); */
       }
   	});

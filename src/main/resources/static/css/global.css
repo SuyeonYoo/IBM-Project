@@ -52,3 +52,7 @@ textarea{
 .nav-bottom-margin{
 	margin-bottom: 20px !important;
 }
+
+input::-webkit-calendar-picker-indicator {
+   opacity: 0 !important;
+}

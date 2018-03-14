@@ -12,18 +12,22 @@ $( document ).ready(function() {
 	$("#search").keyup(function(){
 		var title = $("[name=title]").val();
 		var data = {"title" : title};
+		console.log(title);
 		
 		$.ajax({
 			type : 'POST',
       url : '/board/search',
       data : data,
       success:function(result){
-      	var str = "";
-      	
-				str = result.resultList[1].title;
-
+      	$('#rcmd_Searchtxt').empty();
+				for (var i=0; i < result.resultList.length; i++){
+					$('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].title+"'>");
+				}
+					var e = jQuery.Event( "keydown", { keyCode: 40 } ); 
+					$("#search").trigger(e);
+					/* e.preventDefault(); */
       }
-  })
+  	});
 	});
 });
 
@@ -63,19 +67,14 @@ $( document ).ready(function() {
     <form class="navbar-form navbar-right" id="searchtxt" action="/board/search">
     	<div class="input-group stylish-input-group">
       	<!-- <input type="text" class="form-control" id="search"  placeholder="Search" name="title"> -->
-				<input list="rcmd_Searchtxt" class="form-control" id="searchcc" placeholder="Search" name="title" autocomplete="on">
+				<input list="rcmd_Searchtxt" class="form-control" id="search" placeholder="Search" name="title" autocomplete="off">
 				<datalist id = "rcmd_Searchtxt">
-					<option value="Internet Explorer">
-			    <option value="우안">
-			    <option value="Chrome">
-			    <option value="Opera">
-			    <option value="Safari">
 				</datalist>
 				<span class="input-group-addon">
         	<button type="submit"> <i class="fas fa-search grayscale"></i></button>  
          </span>
       </div>
     </form>
-    
+
    </div>
 </nav>

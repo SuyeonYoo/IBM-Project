@@ -9,6 +9,8 @@
 
 <script>
 $( document ).ready(function() {
+	
+	/* 검색어 입력 시 */
 	$("#search").keyup(function(){
 		var title = $("[name=title]").val();
 		var data = {"title" : title};
@@ -16,12 +18,13 @@ $( document ).ready(function() {
 		
 		$.ajax({
 			type : 'POST',
-      url : '/board/search',
+      url : '/board/searchtxt',
       data : data,
       success:function(result){
       	$('#rcmd_Searchtxt').empty();
 				for (var i=0; i < result.resultList.length; i++){
 					$('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].title+"'>");
+					/* $('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].no+"'>"+result.resultList[i].title+"</option>"); */
 				}
 					/* var e = jQuery.Event( "keydown", { keyCode: 40 } ); 
 					$("#search").trigger(e); */
@@ -64,14 +67,14 @@ $( document ).ready(function() {
        <li><a class="cursor"><i class="fas fa-sign-out-alt grayscale cursor"></i></a></li>
      </ul>
     
-    <form class="navbar-form navbar-right" id="searchtxt" action="/board/search">
+    <!-- 검색어 입력하는 부분 -->
+    <form class="navbar-form navbar-right" id="frmSearchtxt" method="GET">
     	<div class="input-group stylish-input-group">
-      	<!-- <input type="text" class="form-control" id="search"  placeholder="Search" name="title"> -->
 				<input list="rcmd_Searchtxt" class="form-control" id="search" placeholder="Search" name="title" autocomplete="off">
 				<datalist id = "rcmd_Searchtxt">
 				</datalist>
 				<span class="input-group-addon">
-        	<button type="submit"> <i class="fas fa-search grayscale"></i></button>  
+        	<button type="button" id="btnSearch"> <i class="fas fa-search grayscale"></i></button>  
          </span>
       </div>
     </form>

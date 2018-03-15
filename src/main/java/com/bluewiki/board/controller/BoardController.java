@@ -41,7 +41,7 @@ public class BoardController {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@PostMapping("/search")
+	@PostMapping("/searchtxt")
 	@ResponseBody
 	public JSONObject selectBoardByTitle(String title) throws Exception{
 		JSONObject result = new JSONObject();
@@ -60,21 +60,21 @@ public class BoardController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping(value = "/{no}", method = RequestMethod.GET)
+	@GetMapping("/main/{title}")
 	@ResponseBody
-	public JSONObject selectBoardByNo(@PathVariable int no) throws Exception{
-		JSONObject result = new JSONObject();
-		
+	public ModelAndView selectMatchTitle(@PathVariable String title) throws Exception{
+		ModelAndView mainPageMv = new ModelAndView("/board/main");
 		try {
-			result.put("result", boardService.selectBaordByNo(no));
-			result.put("rsltMsg", "success");
+			mainPageMv.addObject("result", boardService.selectMatchTitle(title));
+			mainPageMv.addObject("rsltMsg", "success");
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			result.put("rsltMsg", "fail");
+			System.out.println(e);
+			mainPageMv.addObject("rsltMsg", "fail");
 		}
 		
-		return result;
+		return mainPageMv;
 	}
 
 }

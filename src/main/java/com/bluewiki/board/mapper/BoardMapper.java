@@ -21,13 +21,13 @@ public interface BoardMapper {
 public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 	
 	
-	@Select("SELECT no, title, content, state"
+	@Select("SELECT no, title, content, state, "
 			+ "DATE_FORMAT(reg_date, '%Y-%m-%d') reg_date, "
 			+ "DATE_FORMAT(reg_time, '%H:%i:%s') reg_time, "
-			+ "sec_state, witer, cnt_like, third_cate_id"
+			+ "sec_state, writer, cnt_like, third_cate_id "
 	+ "FROM BOARD "
-	+ "WHERE id = #{id}")
-	public BoardVo selectBaordByNo(@Param("no") int no);
+	+ "WHERE title = #{title}")
+	public BoardVo selectMatchTitle(@Param("title") String title);
 	
 	
 }

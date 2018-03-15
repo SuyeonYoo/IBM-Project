@@ -8,5 +8,5 @@ public interface BoardService {
 	
 	public List<BoardVo> selectBaordByTitle(String title);
 	
-	public BoardVo selectBaordByNo(int no);
+	public BoardVo selectMatchTitle(String title);
 }

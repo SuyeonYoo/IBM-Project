@@ -22,9 +22,9 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.selectBaordByTitle(title);
 	}
 	
-	public BoardVo selectBaordByNo (int no) {
+	public BoardVo selectMatchTitle (String title) {
 
-		return boardMapper.selectBaordByNo(no);
+		return boardMapper.selectMatchTitle(title);
 	}
 	
 }

@@ -1,32 +1,83 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Insert title here</title>
-	<!-- Bootstarp & Jquery -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!-- FontAwesome -->
-    <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-	<!-- Bootbox -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BLUEWIKI</title>
+<!-- Set -->
+<jsp:include page="../layout/library.jsp"></jsp:include>
+
+<script>
+$( document ).ready(function() {
+	
+	/* 검색어 입력 시 */
+	$("#search").keyup(function(){
+		var title = $("[name=title]").val();
+		var data = {"title" : title};
+		console.log(title);
+		
+		$.ajax({
+			type : 'POST',
+      url : '/board/searchtxt',
+      data : data,
+      success:function(result){
+      	$('#rcmd_Searchtxt').empty();
+				for (var i=0; i < result.resultList.length; i++){
+					$('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].title+"'>");
+					/* $('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].no+"'>"+result.resultList[i].title+"</option>"); */
+				}
+					/* var e = jQuery.Event( "keydown", { keyCode: 40 } ); 
+					$("#search").trigger(e); */
+					/* e.preventDefault(); */
+      }
+  	});
+	});
+});
+
+</script>
+
 </head>
 <body>
+
 <!-- navbar -->
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-	  	<div class="navbar-header">
-	    	<a class="navbar-brand" href="#">WebSiteName</a>
-	  	</div>
-	  	<ul class="nav navbar-nav">
-	  	<li class="active"><a href="#">Home</a></li>
-	  		<li><a href="#">Page 1</a></li>
-				<li><a href="#">Page 2</a></li>
-				<li><a href="#">Page 3</a></li>
-			</ul>
-		</div>
-	</nav>
-</body>
-</html>
+<nav class="navbar navbar-default">
+
+   <div class="container-fluid text-right">
+     <div class="navbar-header">
+       <img class="logo" src="/img/login_logo.PNG" width="30" height="30" class="d-inline-block align-top cursor" alt="">
+       <a class="navbar-brand nav-padding logo-text cursor" href="#">Blue<b>WiKi</b></a>
+     </div>
+
+    <ul class="nav navbar-nav navbar-left">
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fas fa-align-justify  grayscale cursor"></i>&nbsp;이용안내</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">공지사항</a></li>
+          <li><a href="#">문의게시판</a></li>
+          <li><a href="#">신고게시판</a></li>
+        </ul>
+      </li>
+ 			<li id="chgList"><a class="cursor"><i class="fas fa-clock grayscale cursor"></i>&nbsp;최근변경</a></li>
+ 			<li id="top15"><a class="cursor"><i class="far fa-heart grayscale cursor"></i>&nbsp;Top15</a></li>
+    </ul>
+    
+    <ul class="nav navbar-nav navbar-right">
+       <li><a class="cursor"><i class="fas fa-user grayscale cursor"></i>&nbsp;</a></li>
+       <li><a class="cursor"><i class="fas fa-sign-out-alt grayscale cursor"></i></a></li>
+     </ul>
+    
+    <!-- 검색어 입력하는 부분 -->
+    <form class="navbar-form navbar-right" id="frmSearchtxt" method="GET">
+    	<div class="input-group stylish-input-group">
+				<input list="rcmd_Searchtxt" class="form-control" id="search" placeholder="Search" name="title" autocomplete="off">
+				<datalist id = "rcmd_Searchtxt">
+				</datalist>
+				<span class="input-group-addon">
+        	<button type="button" id="btnSearch"> <i class="fas fa-search grayscale"></i></button>  
+         </span>
+      </div>
+    </form>
+
+   </div>
+</nav>

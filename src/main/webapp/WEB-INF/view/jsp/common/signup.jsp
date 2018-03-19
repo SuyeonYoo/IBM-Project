@@ -10,9 +10,25 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		//$("#pwGroup").hide();
-		//$("#btnSignup").attr("disabled","disabled");
+		$("#pwGroup").hide();
+		$("#sendEmailGroup").hide();
+		$("#btnSignup").attr("disabled","disabled");
 	});
+	
+	//콜백설정
+	var callback = {		
+		idChkingSuccess : function(data) {
+
+			if(data == "true") {
+				$("#myModal").find(".modal-body").text("사용가능한 이메일입니다.");
+				$("#myModal").modal();	
+				$("#sendEmailGroup").show();
+			} else {
+				$("#myModal").find(".modal-body").text("이미 사용 중인 이메일입니다.");
+				$("#myModal").modal();
+			}
+		}
+	}
 	
 	function checkExId() {
 		
@@ -31,8 +47,8 @@
 		        	usrId : usrId,
 		        },
 		        success: function(data){
-		        	$("#myModal").find(".modal-body").text(data.resultData);
-					$("#myModal").modal();
+		        	console.log(data);
+		        	callback.idChkingSuccess(data);
 		        }
 	    	});
 		}
@@ -92,10 +108,10 @@
 		    	<button class="btn btn-outline-info" onclick="checkExId()">중복확인</button>
 	        </div>
 	        
-	        <div class="form-label-group" id="idChecking">
+	        <div class="form-label-group" id="sendEmailGroup">
 	        	<h5 class="guideTxt"> <a href="" onclick="" >IBMer 인증하기</a><small> 블루위키는 우리만의 공간이잖아요 ;)</small></h5>
 				<div class="inputEmail">
-					<input type="email" id="chkNum" class="form-control" placeholder="w3id address (abc@kr.ibm.com)">
+					<input type="email" id="chkNum" class="form-control">
 				</div>
 		    	<button class="btn btn-outline-info" onclick="checkExId()">인증확인</button>
 	        </div>

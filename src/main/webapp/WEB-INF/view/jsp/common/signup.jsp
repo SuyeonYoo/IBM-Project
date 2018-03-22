@@ -11,7 +11,7 @@
 
 	$(document).ready(function() {
 		//$("#pwGroup").hide();
-		$("#pwNotice").hide();
+		$("#pwReNotice").hide();
 		$("#sendEmailGroup").hide();
 		$("#btnSignup").attr("disabled","disabled");
 	});
@@ -112,23 +112,38 @@
 		}
 	}
 	
-	//  
+	// 비밀번호 길이 확인
+	function chkLength() {
+		var usrPw = $("#usrPw").val();
+		
+		if (usrPw.length < 8) {
+			$("#pwNotice").removeClass();
+			$("#pwNotice").addClass("text-danger");
+			$("#pwNotice").text("8자리 이상 입력해주세요.");
+		} else {
+			$("#pwNotice").text("");
+		}
+	}
+	
+	// 비밀번호 재입력 확인
 	function isSame() {
 		
 		var usrPw = $("#usrPw").val();
 		var usrPwRe = $("#usrPwRe").val();
 		
 		if (usrPw != usrPwRe) {
-			$("#pwNotice").removeClass();
-			$("#pwNotice").addClass("text-danger");
-			$("#pwNotice").text("비밀번호가 일치하지 않습니다.");			
+			$("#pwReNotice").removeClass();
+			$("#pwReNotice").addClass("text-danger");
+			$("#pwReNotice").text("비밀번호가 일치하지 않습니다.");
+			$("#chkSame").val("false");
 		} else if (usrPw == usrPwRe) {
-			$("#pwNotice").removeClass();
-			$("#pwNotice").addClass("text-info");
-			$("#pwNotice").text("비밀번호가 일치합니다.");
+			$("#pwReNotice").removeClass();
+			$("#pwReNotice").addClass("text-info");
+			$("#pwReNotice").text("비밀번호가 일치합니다.");
+			$("#chkSame").val("true");
 		}
 		
-		$("#pwNotice").show();
+		$("#pwReNotice").show();
 	}
 	
 	// 로그인 페이지로 이동
@@ -150,6 +165,8 @@
 		var usrId = $("#usrId").val();	
 		var usrPw = $("#usrPw").val();
 		var usrPwRe = $("#usrPwRe").val();
+		var alreadyChk = $("#alreadyChk").val();
+		var chkSame = $("#chkSame").val();
 		
 		if (usrId == null || usrId == "") {
 			$("#alertModal").find(".modal-body").text("이메일을 입력해주세요.");
@@ -159,6 +176,12 @@
 			$("#alertModal").modal();
 		} else if (usrPwRe == null || usrPwRe == "") {
 			$("#alertModal").find(".modal-body").text("비밀번호를 재입력해주세요.");
+			$("#alertModal").modal();
+		} else if (alreadyChk != "true") {
+			$("#alertModal").find(".modal-body").text("이메일 인증이 이루어지지 않았습니다.");
+			$("#alertModal").modal();
+		} else if (chkSame != "true") {
+			$("#alertModal").find(".modal-body").text("비밀번호가 일치하지 않습니다.");
 			$("#alertModal").modal();
 		}
 		
@@ -197,17 +220,19 @@
 	        
 	        <div id="pwGroup">
 	        	<div class="form-label-group">
-			        <input type="password" id="usrPw" class="form-control" placeholder="Password" maxlength="20">
-			        <h6 class=".text-muted">비밀번호는 8~20자 이내로 숫자, 영어대소문자를 조합하여 입력해주세요.</h6>
+			        <input type="password" id="usrPw" class="form-control" placeholder="Password" maxlength="20" onkeyup="chkLength()">
+			        <h6 class="text-muted">비밀번호는 8~20자 이내로 숫자, 영어대소문자를 조합하여 입력해주세요.</h6>
+			        <h6 class='text-danger' id="pwNotice"></h6>
 		      	</div>
 		      	
 		      	<div class="form-label-group" id="pwReGroup">
 			        <input type="password" id="usrPwRe" class="form-control" placeholder="Re-enter Password" maxlength="20" onkeyup="isSame()">
-		      		<h6 class='text-info' id="pwNotice">비밀번호가 일치합니다.</h6>
+		      		<h6 class="text-info" id="pwReNotice">비밀번호가 일치합니다.</h6>
+		      		<input type="hidden" id="chkSame" value="">
 		      	</div>
 	        </div>
 		    
-		    <button class="btn btn-primary btnSignin" type="submit" id="btnSignup">Sign Up</button>
+		    <button class="btn btn-primary btnSignin" type="submit" id="btnSignup" onclick="signUp();">Sign Up</button>
 		    <button class="btn btnSignup" onclick="moveSignInPage();">Cancel</button>
 		</form>
 	</div>

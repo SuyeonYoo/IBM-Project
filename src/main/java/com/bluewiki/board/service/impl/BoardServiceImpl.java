@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bluewiki.board.mapper.BoardMapper;
 import com.bluewiki.board.service.BoardService;
+import com.bluewiki.board.vo.BoardIndexVo;
 import com.bluewiki.board.vo.BoardVo;
 
 @Service
@@ -25,6 +26,11 @@ public class BoardServiceImpl implements BoardService{
 	public BoardVo selectMatchTitle (String title) {
 
 		return boardMapper.selectMatchTitle(title);
+	}
+	
+	public List<BoardIndexVo> selectIndexList(int no) {
+		
+		return boardMapper.selectIndexList(no);
 	}
 	
 }

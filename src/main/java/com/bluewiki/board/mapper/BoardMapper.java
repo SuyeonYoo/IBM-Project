@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.bluewiki.board.vo.BoardIndexVo;
 import com.bluewiki.board.vo.BoardVo;
 
 @Mapper
@@ -29,5 +30,10 @@ public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 	+ "WHERE title = #{title}")
 	public BoardVo selectMatchTitle(@Param("title") String title);
 	
+	@Select("SELECT numbering, title, dept, sort "
+			+ "FROM BOARD_INDEX "
+			+ "WHERE board_no = #{no} "
+			+ "ORDER BY sort")
+	public List<BoardIndexVo> selectIndexList(@Param("no") int no);
 	
 }

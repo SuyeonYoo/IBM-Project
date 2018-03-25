@@ -4,10 +4,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BLUEWIKI</title>
-</head>
-<body>
 <!-- Set -->
 <jsp:include page="../layout/library.jsp"></jsp:include>
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="/css/search/search_main.css">
+</head>
+
+<body>
 
 <!-- navbar -->
 <nav class="navbar bg-white">

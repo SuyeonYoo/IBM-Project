@@ -1,5 +1,7 @@
 package com.bluewiki.board.controller;
 
+import java.net.URLEncoder;
+
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,9 +32,9 @@ public class BoardController {
 	 */
 	@GetMapping("/main")
 	public ModelAndView mainPage() throws Exception{
-		ModelAndView mainPage = new ModelAndView("/board/main");
+		ModelAndView mainPageMv = new ModelAndView("/board/main");
 		
-		return mainPage;
+		return mainPageMv;
 	}
 	
 	/**
@@ -60,21 +62,58 @@ public class BoardController {
 	 * @param 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	@GetMapping("/main/{title}")
 	@ResponseBody
 	public ModelAndView selectMatchTitle(@PathVariable String title) throws Exception{
 		ModelAndView mainPageMv = new ModelAndView("/board/main");
+		JSONObject result = new JSONObject();
 		try {
 			mainPageMv.addObject("result", boardService.selectMatchTitle(title));
+			mainPageMv.addObject("indexList", boardService.selectIndexList(boardService.selectMatchTitle(title).getNo()));
+			System.out.println(">>>>>>>>>>>>>>>>>>>" + boardService.selectIndexList(boardService.selectMatchTitle(title).getNo()));
 			mainPageMv.addObject("rsltMsg", "success");
 			
+			return mainPageMv;
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println(e);
-			mainPageMv.addObject("rsltMsg", "fail");
+			
+			title = URLEncoder.encode(title,"UTF-8");
+			
+			String url = "redirect:/board/noResult/"+title;
+			System.out.println(url);
+			return new ModelAndView(url);
 		}
 		
-		return mainPageMv;
 	}
+	
+	/**
+	 * load no result page
+	 * @param 
+	 * @return
+	 */
+	@GetMapping("/noResult/{title}")
+	public ModelAndView noResultPage(@PathVariable String title) throws Exception{
+		ModelAndView noResultPageMv = new ModelAndView("/board/noResult");
+		noResultPageMv.addObject("title", title);
+		
+		return noResultPageMv;
+	}
+	
+	
+	/**
+	 * load create page
+	 * @param 
+	 * @return
+	 */
+	@GetMapping("/create/{title}")
+	public ModelAndView createPage(@PathVariable String title) throws Exception{
+		ModelAndView createPageMv = new ModelAndView("/board/create");
+		createPageMv.addObject("title",title);
+		
+		
+		return createPageMv;
+	}
+	
 
 }

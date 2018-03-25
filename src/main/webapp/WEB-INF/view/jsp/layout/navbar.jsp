@@ -6,44 +6,6 @@
 <title>BLUEWIKI</title>
 <!-- Set -->
 <jsp:include page="../layout/library.jsp"></jsp:include>
-
-<script>
-var ArrResult = new Array();
-
-$( document ).ready(function() {
-	
-	/* 검색어 입력 시 */
-	$("#search").keyup(function(){
-		var title = $("[name=title]").val();
-		var data = {"title" : title};
-		console.log(title);
-		
-		$.ajax({
-			type : 'POST',
-      url : '/board/searchtxt',
-      data : data,
-      success:function(result){
-      	
-      	if(result.resultList.length > 0)
-      		ArrResult.length = 0;
-      	
-				for (var i=0; i < result.resultList.length; i++)
-					ArrResult.push(result.resultList[i].title);	
-					/* $('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].title+"'>"); */
-					/* $('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].no+"'>"+result.resultList[i].title+"</option>"); */
-
-      }
-  	});
-	});	
-	
-	/* 검색어  자동완성 */
-	$('#search').typeahead({        
-    source: ArrResult
-	});
-	
-});
-</script>
-
 </head>
 <body>
 
@@ -86,6 +48,47 @@ $( document ).ready(function() {
       </div>
       </fieldset>
     </form>
-
    </div>
 </nav>
+
+</body>
+<script>
+var ArrResult = new Array();
+
+$( document ).ready(function() {
+	$('#search').focus();
+	
+	/* 검색어 입력 시 */
+	$("#search").keyup(function(){
+		var title = $("[name=title]").val();
+		var data = {"title" : title};
+		console.log(title);
+		
+		$.ajax({
+			type : 'POST',
+      url : '/board/searchtxt',
+      data : data,
+      success:function(result){
+      	
+      	if(result.resultList.length > 0)
+      		ArrResult.length = 0;
+      	
+				for (var i=0; i < result.resultList.length; i++){
+					ArrResult.push(result.resultList[i].title);	
+				}
+				console.log(ArrResult);
+					/* $('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].title+"'>"); */
+					/* $('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].no+"'>"+result.resultList[i].title+"</option>"); */
+
+      }
+  	});
+	});	
+	
+	/* 검색어  자동완성 */
+	$('#search').typeahead({
+    source: ArrResult
+	});
+	
+});
+</script>
+</html>

@@ -9,10 +9,4 @@ import com.bluewiki.common.service.SearchService;
 @Service
 public class SearchServiceImpl implements SearchService{
 
-	@Autowired
-	MemberMapper memberMapper;
-	
-	public int selectExistedId (String memberId) {
-		return memberMapper.selectExistedId(memberId);
-	}
 }

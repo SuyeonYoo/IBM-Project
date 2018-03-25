@@ -8,11 +8,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bluewiki.common.service.MemberService;
 import com.bluewiki.common.service.SearchService;
 
 @Controller
@@ -21,6 +24,9 @@ public class CommonController {
 	
 	@Autowired
 	SearchService searchService;
+	
+	@Autowired
+	MemberService memberService;
 
 	/**
 	 * load search main page
@@ -60,16 +66,22 @@ public class CommonController {
 	 * @param 
 	 * @return
 	 */
-	@GetMapping("/checkExistedId")
+	@PostMapping("/checkExistedId")
 	@ResponseBody
-	public ResponseEntity<String> checkExistedId(@RequestParam Map<String, Object> paramMap) throws Exception{
-		String resultData = "";
+	public ResponseEntity<Boolean> checkExistedId(@RequestParam Map<String, Object> paramMap) throws Exception{
+		Boolean isExistedId = false;
 		
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=UTF-8");
 		
-		int usrCnt = searchService.selectExistedId((String)paramMap.get("usrId"));
+		int usrCnt = memberService.selectExistedId((String)paramMap.get("usrId"));
 		
-		return new ResponseEntity<String>(resultData,responseHeaders,HttpStatus.OK);
+		if (usrCnt == 1) {
+			isExistedId = false;
+		} else {
+			isExistedId = true;
+		}
+		
+		return new ResponseEntity<Boolean>(isExistedId,responseHeaders,HttpStatus.OK);
 	}
 }

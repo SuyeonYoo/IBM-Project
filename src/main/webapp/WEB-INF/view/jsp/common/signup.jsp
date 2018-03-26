@@ -196,9 +196,9 @@
 	<div class="container">
 		<form class="form-signin" method="POST" onsubmit="return false;">
 			
-			<div class="row">
-				<p class="logoTxt text-center">BlueWiki ; Sign up</p>
-				<br/>
+			<div class="logo-box">
+				<img class="align-center logoImg" src="/img/login_logo.PNG"> 
+				<span class="align-bottom logoName">BlueWiki</span>
 			</div>
 			
 			<div class="form-label-group">
@@ -232,7 +232,7 @@
 		      	</div>
 	        </div>
 		    
-		    <button class="btn btn-primary btnSignin" type="submit" id="btnSignup" onclick="signUp();">Sign Up</button>
+		    <button class="btn btn-info btnSignin" type="submit" id="btnSignup" onclick="signUp();">Sign Up</button>
 		    <button class="btn btnSignup" onclick="moveSignInPage();">Cancel</button>
 		</form>
 	</div>

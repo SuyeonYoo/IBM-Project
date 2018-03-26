@@ -23,8 +23,9 @@ function moveSignUpPage() {
 	<!-- posts area -->
 	<div class="container">
 		<form class="form-signin" method="POST" onsubmit="return false;">
-			<div class="row">
-				<p class="logoTxt text-center">BlueWiki ; Sign in</p>
+			<div class="logo-box">
+				<img class="align-center logoImg" src="/img/login_logo.PNG"> 
+				<span class="align-bottom logoName">BlueWiki</span>
 			</div>
 			
 			<div class="form-label-group">
@@ -35,7 +36,7 @@ function moveSignUpPage() {
 		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 	      	</div>
 		
-		    <button class="btn btn-primary btnSignin" type="submit">Sign In</button>
+		    <button class="btn btn-info btnSignin" type="submit">Sign In</button>
 		    <button class="btn btnSignup" onclick="moveSignUpPage();">Sign up</button>
 		</form>
 	</div>

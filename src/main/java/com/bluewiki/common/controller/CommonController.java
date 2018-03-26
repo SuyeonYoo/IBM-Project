@@ -45,7 +45,7 @@ public class CommonController {
 	 * @return
 	 */
 	@GetMapping("/signin")
-	public ModelAndView login() throws Exception{
+	public ModelAndView loadSignInPage() throws Exception{
 		ModelAndView mv = new ModelAndView("/common/signin");
 		return mv;
 	}
@@ -56,13 +56,13 @@ public class CommonController {
 	 * @return
 	 */
 	@GetMapping("/signup")
-	public ModelAndView signUp() throws Exception{
+	public ModelAndView loadSignUpPage() throws Exception{
 		ModelAndView mv = new ModelAndView("/common/signup");
 		return mv;
 	}
 	
 	/**
-	 * load signup page
+	 * check Id 
 	 * @param 
 	 * @return
 	 */
@@ -83,5 +83,16 @@ public class CommonController {
 		}
 		
 		return new ResponseEntity<Boolean>(isExistedId,responseHeaders,HttpStatus.OK);
+	}
+	
+	/**
+	 * load welcome page
+	 * @param 
+	 * @return
+	 */
+	@GetMapping("/welcome")
+	public ModelAndView loadWelcomePage() throws Exception{
+		ModelAndView mv = new ModelAndView("/common/welcome");
+		return mv;
 	}
 }

@@ -8,6 +8,8 @@
 <jsp:include page="../layout/library.jsp"></jsp:include>
 
 <script>
+var ArrResult = new Array();
+
 $( document ).ready(function() {
 	
 	/* 검색어 입력 시 */
@@ -21,19 +23,25 @@ $( document ).ready(function() {
       url : '/board/searchtxt',
       data : data,
       success:function(result){
-      	$('#rcmd_Searchtxt').empty();
-				for (var i=0; i < result.resultList.length; i++){
-					$('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].title+"'>");
+      	
+      	if(result.resultList.length > 0)
+      		ArrResult.length = 0;
+      	
+				for (var i=0; i < result.resultList.length; i++)
+					ArrResult.push(result.resultList[i].title);	
+					/* $('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].title+"'>"); */
 					/* $('#rcmd_Searchtxt').append("<option value='"+result.resultList[i].no+"'>"+result.resultList[i].title+"</option>"); */
-				}
-					/* var e = jQuery.Event( "keydown", { keyCode: 40 } ); 
-					$("#search").trigger(e); */
-					/* e.preventDefault(); */
+
       }
   	});
+	});	
+	
+	/* 검색어  자동완성 */
+	$('#search').typeahead({        
+    source: ArrResult
 	});
+	
 });
-
 </script>
 
 </head>
@@ -69,14 +77,14 @@ $( document ).ready(function() {
     
     <!-- 검색어 입력하는 부분 -->
     <form class="navbar-form navbar-right" id="frmSearchtxt" method="GET">
+    <fieldset>
     	<div class="input-group stylish-input-group">
-				<input list="rcmd_Searchtxt" class="form-control" id="search" placeholder="Search" name="title" autocomplete="off">
-				<datalist id = "rcmd_Searchtxt">
-				</datalist>
+				<input class="form-control" id="search" placeholder="Search" name="title" autocomplete="off">
 				<span class="input-group-addon">
         	<button type="button" id="btnSearch"> <i class="fas fa-search grayscale"></i></button>  
          </span>
       </div>
+      </fieldset>
     </form>
 
    </div>

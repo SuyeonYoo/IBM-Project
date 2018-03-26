@@ -1,5 +1,6 @@
 package com.bluewiki.common.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bluewiki.common.mapper.MemberMapper;
 import com.bluewiki.common.service.MemberService;
+import com.bluewiki.common.vo.MemberVo;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -25,4 +27,16 @@ public class MemberServiceImpl implements MemberService {
 		
 		memberMapper.insertNewMember(memberId, pwd);
 	}
+
+	@Override
+	public List<MemberVo> getRptMember() {
+		return memberMapper.getRptMember();
+	}
+
+	@Override
+	public void changeSts(String memberId) {
+		memberMapper.changeSts(memberId);
+	}
+	
+	
 }

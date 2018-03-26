@@ -9,12 +9,17 @@ import com.bluewiki.board.mapper.BoardMapper;
 import com.bluewiki.board.service.BoardService;
 import com.bluewiki.board.vo.BoardIndexVo;
 import com.bluewiki.board.vo.BoardVo;
+import com.bluewiki.board.vo.InqBoardVo;
+import com.bluewiki.inqBoard.mapper.InqBoardMapper;
 
 @Service
 public class BoardServiceImpl implements BoardService{
 
 	@Autowired
 	BoardMapper boardMapper;
+	
+	@Autowired
+	InqBoardMapper inqBoardMapper;
 	
 	public List<BoardVo> selectBaordByTitle (String title) {
 		
@@ -32,5 +37,18 @@ public class BoardServiceImpl implements BoardService{
 		
 		return boardMapper.selectIndexList(no);
 	}
+
+	@Override
+	public List<InqBoardVo> getRptPostList() {
+		return boardMapper.getRptPostList();
+	}
+
+	@Override
+	public void changeSts(int brdNo) {
+		boardMapper.changeBrdSts(brdNo);
+		inqBoardMapper.changeInqBrdSts(brdNo);
+	}
+	
+	
 	
 }

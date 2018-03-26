@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -115,5 +116,19 @@ public class BoardController {
 		return createPageMv;
 	}
 	
+	@RequestMapping("/changeSts")
+	@ResponseBody
+	public String changeSts(@RequestParam int brdNo) {
+		
+		boardService.changeSts(brdNo);
+		
+		return "1";
+	}
+	
+	@RequestMapping("/retrieveBrdDetail")
+	public String retrieveBrdDetail(@RequestParam int brdNo) {
+		
+		return "";
+	} /////////////////////////해당 게시글로 이동
 
 }

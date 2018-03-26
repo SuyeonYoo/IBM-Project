@@ -13,7 +13,7 @@
 		//$("#pwGroup").hide();
 		$("#pwReNotice").hide();
 		$("#sendEmailGroup").hide();
-		$("#btnSignup").attr("disabled","disabled");
+		//$("#btnSignup").attr("disabled", true);
 	});
 	
 	// 콜백설정
@@ -35,6 +35,17 @@
 			
 			$("#alreadyChk").val("true");
 			$("#authNum").val(data);
+		},
+		signUpSuccess : function(data) {
+			
+			if(data == "success") {
+				location.href="/common/welcome";
+			} else {
+				console.log(data);
+				var message = data;
+				$("#alertModal").find(".modal-body").text(data);
+				$("#alertModal").modal();
+			}
 		}
 	}
 	
@@ -102,6 +113,8 @@
 				
 				$("#sendEmailGroup").hide();
 				$("#pwGroup").show();
+				
+				$("#btnSignup").attr("disabled", false);
 			} else {
 				$("#alertModal").find(".modal-body").text("인증번호가 일치하지 않습니다.");
 				$("#alertModal").modal();
@@ -154,8 +167,27 @@
 	// 회원가입
 	function signUp() {
 		
+		var memberId = $("#usrId").val();	
+		var pwd = $("#usrPw").val();
+		
 		if (checkInput()) {
 			
+			$.ajax({
+		        url : "/common/signup_member",
+		        type : 'POST',
+		        data : {
+		        	memberId : memberId,
+		        	pwd : pwd
+		        },
+		        success: function(data){
+		        	callback.signUpSuccess(data);
+		        },
+		        error:function(request,status,error){
+		            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		            $("#alertModal").find(".modal-body").text("회원가입에 실패하였습니다.\n관리자에게 문의하세요.");
+					$("#alertModal").modal();
+		        }
+	    	});
 		}
 	}
 	
@@ -171,20 +203,36 @@
 		if (usrId == null || usrId == "") {
 			$("#alertModal").find(".modal-body").text("이메일을 입력해주세요.");
 			$("#alertModal").modal();
+			
+			return false;
 		} else if (usrPw == null || usrPw == "") {
 			$("#alertModal").find(".modal-body").text("비밀번호를 입력해주세요.");
 			$("#alertModal").modal();
+			
+			return false;
 		} else if (usrPwRe == null || usrPwRe == "") {
 			$("#alertModal").find(".modal-body").text("비밀번호를 재입력해주세요.");
 			$("#alertModal").modal();
-		} else if (alreadyChk != "true") {
+			
+			return false;
+		} /* else if (alreadyChk != "true") {
 			$("#alertModal").find(".modal-body").text("이메일 인증이 이루어지지 않았습니다.");
 			$("#alertModal").modal();
-		} else if (chkSame != "true") {
+			
+			return false;
+		} */ else if (chkSame != "true") {
 			$("#alertModal").find(".modal-body").text("비밀번호가 일치하지 않습니다.");
 			$("#alertModal").modal();
+			
+			return false;
+		} else if (usrPw.length < 8 || usrPw.length > 20) {
+			$("#alertModal").find(".modal-body").text("비밀번호는 8~20 자 이내로 입력해주세요.");
+			$("#alertModal").modal();
+			
+			return false;
 		}
 		
+		return true;
 	}
 
 </script>
@@ -221,7 +269,8 @@
 	        <div id="pwGroup">
 	        	<div class="form-label-group">
 			        <input type="password" id="usrPw" class="form-control" placeholder="Password" maxlength="20" onkeyup="chkLength()">
-			        <h6 class="text-muted">비밀번호는 8~20자 이내로 숫자, 영어대소문자를 조합하여 입력해주세요.</h6>
+			        <h6 class="text-muted">비밀번호는 8~20 자 이내로 입력해주세요.</h6>
+			        <h6 class="text-muted">비밀번호는 숫자, 영문, 특수문자(!@$%^&* 만 허용) 를 조합해주세요.</h6>
 			        <h6 class='text-danger' id="pwNotice"></h6>
 		      	</div>
 		      	

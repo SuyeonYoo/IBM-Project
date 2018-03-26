@@ -9,6 +9,16 @@
 <script src="/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 
+	var $loading = $('#loadingDiv').hide();
+	
+	$(document)
+	.ajaxStart(function () {
+	    $loading.show();
+	})
+	.ajaxStop(function () {
+	    $loading.hide();
+	});
+  
 	$(document).ready(function() {
 		//$("#pwGroup").hide();
 		$("#pwReNotice").hide();
@@ -319,7 +329,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-	        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendEmail()">확인</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
 	      </div>
 	    </div>
 	  </div>

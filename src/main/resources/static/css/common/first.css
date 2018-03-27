@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+body, html {
+	font-family: 'Open Sans', sans-serif;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+	color: #777;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.intro {
+	display: table;
+	width: 100%;
+	padding: 14.6%;
+	height:auto;
+	text-align: center;
+	color: #333;
+	background: url(/img/intro-bg.jpg) no-repeat center top;
+	background-color: #e5e5e5;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+.intro h1 {
+	font-size: 60px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	color: #333;
+}
+.intro p {
+	font-size: 20px;
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+header .intro-text {
+}
+
+.btn-default {
+    text-transform: uppercase;
+    color: #555;
+    background-color: transparent;
+    border-color: #777;
+    padding: 14px 20px;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 0;
+    margin-top: 20px;
+}
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+	color: #fff;
+	background-color: #121d1f;
+	border-color: #121d1f;
+}
+
+a {
+	color: #000000;
+}
+a:hover, a:focus {
+	text-decoration: none;
+	color: #000;
+}

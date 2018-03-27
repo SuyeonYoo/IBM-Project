@@ -29,6 +29,17 @@ public class CommonController {
 	
 	@Autowired
 	MemberService memberService;
+	
+	/**
+	 * load search main page
+	 * @param 
+	 * @return
+	 */
+	@GetMapping("/first")
+	public ModelAndView loadFirstPage() throws Exception{
+		ModelAndView mv = new ModelAndView("/common/first");
+		return mv;
+	}
 
 	/**
 	 * load search main page

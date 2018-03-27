@@ -19,7 +19,7 @@
 		<div class="welcome-box">
 			<div>
 				<img class="align-center logoImg" src="/img/login_logo.PNG"> 
-				<span class="align-bottom logoName">BlueWiki</span>
+				<span class="align-bottom logoName">블루팁스</span>
 			</div>
 			
 			<h2 class="text-center text-secondary">회원가입이 완료되었습니다!</h2>

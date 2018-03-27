@@ -17,8 +17,7 @@
 		$("#btnSignup").attr("disabled", true);
 	});
 	
-	$(function() {
-		
+	$(function() {		
 		$("#btnConfirm").click(function() {
 			var type = $(this).next().val();
 			
@@ -221,23 +220,23 @@
 			$("#alertModal").modal();
 			
 			return false;
-		} else if (usrPw == null || usrPw == "") {
-			$("#alertModal").find(".modal-body").text("비밀번호를 입력해주세요.");
-			$("#alertModal").modal();
-			
-			return false;
-		} else if (alreadyChk != "true") {
+		} else if (idChk != "true") {
 			$("#alertModal").find(".modal-body").text("아이디 중복체크를 진행해주세요.");
-			$("#alertModal").modal();
-			
-			return false;
-		} else if (usrPwRe == null || usrPwRe == "") {
-			$("#alertModal").find(".modal-body").text("비밀번호를 재입력해주세요.");
 			$("#alertModal").modal();
 			
 			return false;
 		} else if (alreadyChk != "true") {
 			$("#alertModal").find(".modal-body").text("이메일 인증이 이루어지지 않았습니다.");
+			$("#alertModal").modal();
+			
+			return false;
+		} else if (usrPw == null || usrPw == "") {
+			$("#alertModal").find(".modal-body").text("비밀번호를 입력해주세요.");
+			$("#alertModal").modal();
+			
+			return false;
+		} else if (usrPwRe == null || usrPwRe == "") {
+			$("#alertModal").find(".modal-body").text("비밀번호를 재입력해주세요.");
 			$("#alertModal").modal();
 			
 			return false;
@@ -265,7 +264,7 @@
 			
 			<div class="logo-box">
 				<img class="align-center logoImg" src="/img/login_logo.PNG"> 
-				<span class="align-bottom logoName">BlueWiki</span>
+				<span class="align-bottom logoName">블루위키</span>
 			</div>
 			
 			<div class="form-label-group">

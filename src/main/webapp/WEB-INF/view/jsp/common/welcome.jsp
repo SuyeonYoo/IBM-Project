@@ -4,9 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BLUEWIKI</title>
-<!-- CSS -->
+<jsp:include page="../layout/library2.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/css/common/welcome.css">
-<script src="/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 	//로그인 페이지로 이동
 	function moveSignInPage() {
@@ -15,9 +14,6 @@
 </script>
 </head>
 <body>
-	<!-- Setting -->
-	<jsp:include page="../layout/library.jsp"></jsp:include>
-
 	<!-- posts area -->
 	<div class="container">
 		<div class="welcome-box">

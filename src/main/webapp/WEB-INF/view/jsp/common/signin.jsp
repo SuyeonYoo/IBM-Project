@@ -4,9 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BLUEWIKI</title>
-<!-- CSS -->
+<jsp:include page="../layout/library2.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/css/common/signin.css">
-<script src="/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 
 // 회원가입 페이지로 이동
@@ -17,9 +16,6 @@ function moveSignUpPage() {
 </script>
 </head>
 <body>
-	<!-- Setting -->
-	<jsp:include page="../layout/library.jsp"></jsp:include>
-
 	<!-- posts area -->
 	<div class="container">
 		<form class="form-signin" method="POST" onsubmit="return false;">
@@ -33,11 +29,11 @@ function moveSignUpPage() {
 	        </div>
 		
 	      	<div class="form-label-group">
-		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		        <input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required>
 	      	</div>
 		
-		    <button class="btn btn-info btnSignin" type="submit">Sign In</button>
-		    <button class="btn btnSignup" onclick="moveSignUpPage();">Sign up</button>
+		    <button class="btn btn-info btnSignin" type="submit">로그인</button>
+		    <button class="btn btnSignup" onclick="moveSignUpPage();">회원가입</button>
 		</form>
 	</div>
 </body>

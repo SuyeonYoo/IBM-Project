@@ -4,26 +4,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BLUEWIKI</title>
-<!-- CSS -->
+<jsp:include page="../layout/library2.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/css/common/signin.css">
-<script src="/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
-
-	var $loading = $('#loadingDiv').hide();
-	
-	$(document)
-	.ajaxStart(function () {
-	    $loading.show();
-	})
-	.ajaxStop(function () {
-	    $loading.hide();
-	});
   
+  	var loadingBar = true;
+  	
 	$(document).ready(function() {
-		//$("#pwGroup").hide();
+		$("#pwGroup").hide();
 		$("#pwReNotice").hide();
 		$("#sendEmailGroup").hide();
-		//$("#btnSignup").attr("disabled", true);
+		$("#btnSignup").attr("disabled", true);
+	});
+	
+	$(function() {
+		
+		$("#btnConfirm").click(function() {
+			var type = $(this).next().val();
+			
+			if (type == "email") {
+				sendEmail();
+			}
+		});
 	});
 	
 	// 콜백설정
@@ -34,6 +36,8 @@
 				$("#alertModal").find(".modal-body").text("사용가능한 이메일입니다.");
 				$("#alertModal").modal();	
 				$("#sendEmailGroup").show();
+				
+				$("#idChk").val("true");
 			} else {
 				$("#alertModal").find(".modal-body").text("이미 사용 중인 이메일입니다.");
 				$("#alertModal").modal();
@@ -51,7 +55,6 @@
 			if(data == "success") {
 				location.href="/common/welcome";
 			} else {
-				console.log(data);
 				var message = data;
 				$("#alertModal").find(".modal-body").text(data);
 				$("#alertModal").modal();
@@ -89,6 +92,8 @@
 		if (data == "email") {
 			$("#confirmModal").find(".modal-body").text("입력한 이메일로 인증 메일을 보내시겠습니까?");
 			$("#confirmModal").modal();	
+			
+			$("#conType").val("email");
 		}
 	}
 	
@@ -171,7 +176,7 @@
 	
 	// 로그인 페이지로 이동
 	function moveSignInPage() {
-		location.href = "/common/signin";
+		location.href = "/common/signin";	
 	}
 	
 	// 회원가입
@@ -208,6 +213,7 @@
 		var usrPw = $("#usrPw").val();
 		var usrPwRe = $("#usrPwRe").val();
 		var alreadyChk = $("#alreadyChk").val();
+		var idChk = $("#idChk").val();
 		var chkSame = $("#chkSame").val();
 		
 		if (usrId == null || usrId == "") {
@@ -220,17 +226,22 @@
 			$("#alertModal").modal();
 			
 			return false;
+		} else if (alreadyChk != "true") {
+			$("#alertModal").find(".modal-body").text("아이디 중복체크를 진행해주세요.");
+			$("#alertModal").modal();
+			
+			return false;
 		} else if (usrPwRe == null || usrPwRe == "") {
 			$("#alertModal").find(".modal-body").text("비밀번호를 재입력해주세요.");
 			$("#alertModal").modal();
 			
 			return false;
-		} /* else if (alreadyChk != "true") {
+		} else if (alreadyChk != "true") {
 			$("#alertModal").find(".modal-body").text("이메일 인증이 이루어지지 않았습니다.");
 			$("#alertModal").modal();
 			
 			return false;
-		} */ else if (chkSame != "true") {
+		} else if (chkSame != "true") {
 			$("#alertModal").find(".modal-body").text("비밀번호가 일치하지 않습니다.");
 			$("#alertModal").modal();
 			
@@ -248,8 +259,6 @@
 </script>
 </head>
 <body>
-	<!-- Setting -->
-	<jsp:include page="../layout/library.jsp"/>
 	<!-- posts area -->
 	<div class="container">
 		<form class="form-signin" method="POST" onsubmit="return false;">
@@ -264,6 +273,7 @@
 					<input type="email" id="usrId" class="form-control" placeholder="w3id address (abc@kr.ibm.com)">
 				</div>
 		    	<button class="btn btn-outline-info" onclick="checkExId()">중복확인</button>
+		    	<input type="hidden" id="idChk" value=""/>
 	        </div>
 	        
 	        <div class="form-label-group" id="sendEmailGroup">
@@ -278,21 +288,21 @@
 	        
 	        <div id="pwGroup">
 	        	<div class="form-label-group">
-			        <input type="password" id="usrPw" class="form-control" placeholder="Password" maxlength="20" onkeyup="chkLength()">
+			        <input type="password" id="usrPw" class="form-control" placeholder="비밀번호" maxlength="20" onkeyup="chkLength()">
 			        <h6 class="text-muted">비밀번호는 8~20 자 이내로 입력해주세요.</h6>
 			        <h6 class="text-muted">비밀번호는 숫자, 영문, 특수문자(!@$%^&* 만 허용) 를 조합해주세요.</h6>
 			        <h6 class='text-danger' id="pwNotice"></h6>
 		      	</div>
 		      	
 		      	<div class="form-label-group" id="pwReGroup">
-			        <input type="password" id="usrPwRe" class="form-control" placeholder="Re-enter Password" maxlength="20" onkeyup="isSame()">
+			        <input type="password" id="usrPwRe" class="form-control" placeholder="비밀번호 재입력" maxlength="20" onkeyup="isSame()">
 		      		<h6 class="text-info" id="pwReNotice">비밀번호가 일치합니다.</h6>
 		      		<input type="hidden" id="chkSame" value="">
 		      	</div>
 	        </div>
 		    
-		    <button class="btn btn-info btnSignin" type="submit" id="btnSignup" onclick="signUp();">Sign Up</button>
-		    <button class="btn btnSignup" onclick="moveSignInPage();">Cancel</button>
+		    <button class="btn btn-info btnSignin" type="submit" id="btnSignup" onclick="signUp();">등록</button>
+		    <button class="btn btnSignup" id="btnCancel" onclick="moveSignInPage()">취소</button>
 		</form>
 	</div>
 	
@@ -329,10 +339,16 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-	        <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+	        <button type="button" class="btn btn-primary" id="btnConfirm" data-dismiss="modal">확인</button>
+	        <input type="hidden" id="conType" value=""/>
 	      </div>
 	    </div>
 	  </div>
 	</div>
+	
+	<!-- Loading -->
+	<div id="loading" class="wrap-loading display-none">
+    	<div><img src="/img/loading3.gif"/></div>
+	</div>   
 </body>
 </html>

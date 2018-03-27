@@ -193,4 +193,19 @@ public class CommonController {
 		ModelAndView mv = new ModelAndView("/common/welcome");
 		return mv;
 	}
+	
+	/**
+	 * sign in member
+	 * @param 
+	 * @return
+	 */
+	@PostMapping("/signin_member")
+	@ResponseBody
+	public ResponseEntity<String> signin(@RequestParam Map<String, Object> paramMap) throws Exception{
+		String resultData = "";
+		
+		int usrCnt = memberService.selectExistedId((String)paramMap.get("usrId"));
+		
+		return new ResponseEntity<String>(resultData,HttpStatus.OK);
+	}
 }

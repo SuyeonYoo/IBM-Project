@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import com.bluewiki.common.vo.MemberVo;
+
 @Mapper
 public interface MemberMapper {
 
@@ -25,4 +27,9 @@ public interface MemberMapper {
 			+ "'01' ) ")
 	void insertNewMember(@Param("member_id")String memberId, @Param("pwd")String pwd);
 
+	@Select("SELECT * "
+			+ "FROM MEMBER "
+			+ "WHERE MEMBER_ID = #{member_id} "
+			+ "AND PWD = #{pwd}" )
+	MemberVo selectMemberInfo(@Param("member_id")String memberId, @Param("pwd")String pwd);
 }

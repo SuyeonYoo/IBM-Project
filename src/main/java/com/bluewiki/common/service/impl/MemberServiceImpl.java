@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bluewiki.common.mapper.MemberMapper;
 import com.bluewiki.common.service.MemberService;
+import com.bluewiki.common.vo.MemberVo;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -24,5 +25,13 @@ public class MemberServiceImpl implements MemberService {
 		String pwd = (String)paramMap.get("pwd");
 		
 		memberMapper.insertNewMember(memberId, pwd);
+	}
+	
+	public MemberVo selectMemberInfo(Map<String, Object> paramMap) {
+		
+		String memberId = (String)paramMap.get("memberId");
+		String pwd = (String)paramMap.get("pwd");
+		
+		return memberMapper.selectMemberInfo(memberId, pwd);
 	}
 }

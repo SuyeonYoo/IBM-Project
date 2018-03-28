@@ -1,28 +1,32 @@
 @charset "UTF-8";
 
-body, html {
+html, 
+body {
 	font-family: 'Open Sans', sans-serif;
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
 	color: #777;
 	width: 100% !important;
 	height: 100% !important;
+	align-items: center;
 }
 
-.intro {
-	display: table;
-	width: 100%;
-	padding: 14.6%;
-	height:auto;
-	text-align: center;
-	color: #333;
-	background: url(/img/intro-bg.jpg) no-repeat center top;
-	background-color: #e5e5e5;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: url(/img/intro-bg.jpg) no-repeat center top;
 }
+
 .intro h1 {
 	font-size: 60px;
 	font-weight: 600;

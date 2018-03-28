@@ -4,6 +4,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bluewiki.common.service.MemberService;
 import com.bluewiki.common.service.SearchService;
+import com.bluewiki.common.vo.MemberVo;
 
 @Controller
 @RequestMapping("/common")
@@ -212,10 +216,31 @@ public class CommonController {
 	 */
 	@PostMapping("/signin_member")
 	@ResponseBody
-	public ResponseEntity<String> signin(@RequestParam Map<String, Object> paramMap) throws Exception{
+	public ResponseEntity<String> signin(@RequestParam Map<String, Object> paramMap, HttpServletRequest request) throws Exception {
 		String resultData = "";
 		
-		int usrCnt = memberService.selectExistedId((String)paramMap.get("usrId"));
+		MemberVo member = new MemberVo();
+		HttpSession session = request.getSession();
+		
+		try {
+			member = memberService.selectMemberInfo(paramMap);		// member 정보 가져오기
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if (member != null) {
+			String inputId = (String)paramMap.get("memberId");
+			String inputPwd = (String)paramMap.get("pwd");
+			
+			if (member.getMember_id().equals(inputId) && member.getPwd().equals(inputPwd)) {
+				resultData = "success";
+				session.setAttribute("member_id", member.getMember_id());
+			} else {
+				resultData = "fail";
+			}
+		} else {
+			resultData = "fail";
+		}
 		
 		return new ResponseEntity<String>(resultData,HttpStatus.OK);
 	}

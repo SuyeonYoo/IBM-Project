@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,41 @@
 <link rel="stylesheet" type="text/css" href="/css/common/signin.css">
 <script type="text/javascript">
 
+	//콜백설정
+	var callback = {		
+		signInSuccess : function(data) {
+	
+			if(data == "success") {
+				location.href = "/common/searchPage";
+			} else if (data == "fail") {
+				$("#alertModal").find(".modal-body").text("아이디와 비밀번호를 확인해주세요.");
+				$("#alertModal").modal();
+			}
+		}
+	}
 	// 로그인
 	function signin() {
 		
+		var memberId = $("#usrId").val();
+		var pwd = $("#usrPw").val();
+		
 		if(checkInput()) {
-			
+			$.ajax({
+		        url : "/common/signin_member",
+		        type : 'POST',
+		        data : {
+		        	memberId : memberId,
+		        	pwd : pwd
+		        },
+		        success: function(data){
+		        	callback.signInSuccess(data);
+		        },
+		        error:function(request,status,error){
+		            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		            $("#alertModal").find(".modal-body").text("로그인에 실패하였습니다.\n관리자에게 문의하세요.");
+					$("#alertModal").modal();
+		        }
+	    	});
 		}
 	}
 	
@@ -60,7 +91,7 @@
 		<form class="form-signin" method="POST" onsubmit="return false;">
 			<div class="logo-box">
 				<img class="align-center logoImg" src="/img/login_logo.PNG"> 
-				<span class="align-bottom logoName">블루위키</span>
+				<span class="align-bottom logoName">블루팁스</span>
 			</div>
 			
 			<div class="form-label-group">
@@ -68,7 +99,7 @@
 	        </div>
 		
 	      	<div class="form-label-group">
-		        <input type="password" id="usrPw" class="form-control" placeholder="비밀번호" >
+		        <input type="password" id="usrPw" class="form-control" maxlength="20" placeholder="비밀번호" >
 	      	</div>
 		
 		    <button class="btn btn-info btnSignin" onclick="signin()">로그인</button>

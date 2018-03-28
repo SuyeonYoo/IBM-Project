@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@font-face {
+   font-family: 'nanumsquareB'; /* 폰트 패밀리 이름 주기*/
+   src: url(/font/NANUMSQUAREB.TTF); /*폰트 파일 주소*/
+}
+
 /* .container{
 	background-color:#ffffff;
 } */

@@ -2,7 +2,8 @@
 
 html,
 body {
-  height: 100%;
+	font-family: 'nanumsquareB', sans-serif;
+	height: 100%;
 }
 
 body {
@@ -31,9 +32,7 @@ body {
 }
 
 .logoImg {
-	margin-left: 14%;
-	vertical-align: bottom; 
-	height: 80px;
+	width: 70%;
 }
 
 .startBtn {

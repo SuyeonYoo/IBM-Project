@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLUEWIKI</title>
+<title>블루팁스</title>
 <jsp:include page="../layout/library2.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/css/common/first.css">
 <script type="text/javascript">
@@ -19,9 +19,11 @@
 <header id="header">
 	<div class="intro">
 			<div class="intro-text">
-		    	<h1>블루팁스</h1>
+		    	<div class="row" style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
+					<img class="align-bottom logoImg" src="/img/mainLogo.PNG"> 
+				</div>
 		    	<hr>
-		    	<p>블루팁스 한줄 소개</p>
+		    	<p>즐거운 지식공유 플랫폼</p>
 		    	<a class="btn btn-default btn-lg" onclick="loadLogin()">시작하기</a>
 			</div>
 	</div>

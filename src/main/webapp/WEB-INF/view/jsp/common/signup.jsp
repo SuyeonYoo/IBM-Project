@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLUEWIKI</title>
+<title>블루팁스</title>
 <jsp:include page="../layout/library2.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/css/common/signin.css">
 <script type="text/javascript">
@@ -262,9 +262,8 @@
 	<div class="container">
 		<form class="form-signin" method="POST" onsubmit="return false;">
 			
-			<div class="logo-box">
-				<img class="align-center logoImg" src="/img/login_logo.PNG"> 
-				<span class="align-bottom logoName">블루위키</span>
+			<div class="row" style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
+				<img class="align-bottom logoImg" src="/img/mainLogo.PNG"> 
 			</div>
 			
 			<div class="form-label-group">

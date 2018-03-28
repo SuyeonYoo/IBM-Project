@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLUEWIKI</title>
+<title>블루팁스</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="/lib/bootstrap-core-3.3.7/css/bootstrap.min.css">

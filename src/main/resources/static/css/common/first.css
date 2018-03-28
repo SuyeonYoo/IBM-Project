@@ -2,7 +2,7 @@
 
 html, 
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'nanumsquareB', sans-serif;
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
 	color: #777;
@@ -12,19 +12,18 @@ body {
 }
 
 body {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
-  -webkit-box-align: center;
-  align-items: center;
-  text-align: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background: url(/img/intro-bg.jpg) no-repeat center top;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+	-ms-flex-align: center;
+	-ms-flex-pack: center;
+	-webkit-box-align: center;
+	align-items: center;
+	text-align: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 
 .intro h1 {
@@ -66,4 +65,8 @@ a {
 a:hover, a:focus {
 	text-decoration: none;
 	color: #000;
+}
+
+.logoImg {
+	width: 40%;
 }

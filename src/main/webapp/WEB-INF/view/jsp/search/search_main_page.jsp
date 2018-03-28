@@ -3,8 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLUEWIKI</title>
+<title>블루팁스</title>
 <jsp:include page="../search/search_main_navbar.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="/css/common/search_main.css">
 <script>
 
 	if (member_id == 'null') {
@@ -64,8 +65,7 @@
 <body>
 	<div class="container">
 		<div class="row" style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
-			<img class="align-bottom" src="/img/login_logo.PNG" style="vertical-align: bottom; height: 100px"> 
-			<span class="align-bottom" style="font-size: 70px;">BlueWiki</span>
+			<img class="align-bottom logoImg" src="/img/mainLogo.PNG"> 
 		</div>
 		
 		<div style="width:50%; margin:0 auto;">

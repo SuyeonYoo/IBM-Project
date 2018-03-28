@@ -67,13 +67,13 @@
 		<div class="row" style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
 			<img class="align-bottom logoImg" src="/img/mainLogo.PNG"> 
 		</div>
-		
-		<div style="width:50%; margin:0 auto;">
-	        <div class="slinput" style="text-align: center">
-	        	<i class="fa fa-search left-icon"></i> 
-	            <input class="form-control form-control-lg form-control--rounded" type="search" name="title" id="search" placeholder="Search" autocomplete="off">
-	        </div>
-	    </div>
+	    
+	    <div class="input-group" style="width:50%; margin:0 auto;">
+		    <input type="text" class="form-control" id="search" placeholder="궁금한게 뭐예요?">
+		    <span class="input-group-btn">
+		        <button type="button" class="btn btn-info">찾기</button>
+		    </span>
+		</div>
 	</div>
 </body>
 </html>

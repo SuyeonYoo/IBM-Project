@@ -10,9 +10,11 @@ public class MemberVo {
 	public String getMemberId() {
 		return memberId;
 	}
+	
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
+
 	public String getPwd() {
 		return pwd;
 	}
@@ -31,5 +33,4 @@ public class MemberVo {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	
 }

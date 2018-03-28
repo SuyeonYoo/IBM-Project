@@ -4,6 +4,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bluewiki.common.service.MemberService;
 import com.bluewiki.common.service.SearchService;
+import com.bluewiki.common.vo.MemberVo;
 
 @Controller
 @RequestMapping("/common")
@@ -29,6 +33,17 @@ public class CommonController {
 	
 	@Autowired
 	MemberService memberService;
+	
+	/**
+	 * load search main page
+	 * @param 
+	 * @return
+	 */
+	@GetMapping("/first")
+	public ModelAndView loadFirstPage() throws Exception{
+		ModelAndView mv = new ModelAndView("/common/first");
+		return mv;
+	}
 
 	/**
 	 * load search main page
@@ -192,5 +207,41 @@ public class CommonController {
 	public ModelAndView loadWelcomePage() throws Exception{
 		ModelAndView mv = new ModelAndView("/common/welcome");
 		return mv;
+	}
+	
+	/**
+	 * sign in member
+	 * @param 
+	 * @return
+	 */
+	@PostMapping("/signin_member")
+	@ResponseBody
+	public ResponseEntity<String> signin(@RequestParam Map<String, Object> paramMap, HttpServletRequest request) throws Exception {
+		String resultData = "";
+		
+		MemberVo member = new MemberVo();
+		HttpSession session = request.getSession();
+		
+		try {
+			member = memberService.selectMemberInfo(paramMap);		// member 정보 가져오기
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if (member != null) {
+			String inputId = (String)paramMap.get("memberId");
+			String inputPwd = (String)paramMap.get("pwd");
+			
+			if (member.getMemberId().equals(inputId) && member.getPwd().equals(inputPwd)) {
+				resultData = "success";
+				session.setAttribute("member_id", member.getMemberId());
+			} else {
+				resultData = "fail";
+			}
+		} else {
+			resultData = "fail";
+		}
+		
+		return new ResponseEntity<String>(resultData,HttpStatus.OK);
 	}
 }

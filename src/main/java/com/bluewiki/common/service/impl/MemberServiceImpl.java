@@ -38,5 +38,11 @@ public class MemberServiceImpl implements MemberService {
 		memberMapper.changeSts(memberId);
 	}
 	
-	
+	public MemberVo selectMemberInfo(Map<String, Object> paramMap) {
+		
+		String memberId = (String)paramMap.get("memberId");
+		String pwd = (String)paramMap.get("pwd");
+		
+		return memberMapper.selectMemberInfo(memberId, pwd);
+	}
 }

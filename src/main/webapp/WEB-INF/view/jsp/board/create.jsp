@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLUEWIKI_create</title>
+<title>블루팁스_create</title>
 </head>
 <body>
 	<!-- Navbar -->

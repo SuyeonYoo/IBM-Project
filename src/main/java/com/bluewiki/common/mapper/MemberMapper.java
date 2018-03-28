@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Update;
 
 import com.bluewiki.common.vo.MemberVo;
 
+import com.bluewiki.common.vo.MemberVo;
+
 @Mapper
 public interface MemberMapper {
 
@@ -39,4 +41,11 @@ public interface MemberMapper {
 			+ "SET STATE='01' "
 			+ "WHERE MEMBER_ID = #{member_id}")
 	public void changeSts(@Param("member_id")String memberId);
+
+	@Select("SELECT * "
+			+ "FROM MEMBER "
+			+ "WHERE MEMBER_ID = #{member_id} "
+			+ "AND PWD = #{pwd}" )
+	MemberVo selectMemberInfo(@Param("member_id")String memberId, @Param("pwd")String pwd);
+
 }

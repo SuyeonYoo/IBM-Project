@@ -14,4 +14,6 @@ public interface MemberService {
 	public List<MemberVo> getRptMember();
 	
 	public void changeSts(String memberId);
+
+	public MemberVo selectMemberInfo(Map<String, Object> paramMap);
 }

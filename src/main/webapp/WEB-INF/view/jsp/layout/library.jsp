@@ -2,6 +2,7 @@
 
 <!-- Jquery -->
 <script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/jquery/jquery.oLoader.min.js"></script>
 
 <!-- Bootstarp 4 -->
 <!-- <link rel="stylesheet" href="/lib/bootstrap-core/css/bootstrap.min.css">
@@ -27,7 +28,7 @@
 <script type="text/javascript" src="/lib/mdb/js/popper.min.js"></script>
 
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="/lib/mdb/js/mdb.min.js"></script>
+<!-- <script type="text/javascript" src="/lib/mdb/js/mdb.min.js"></script> -->
 
 <!-- Latest compiled and minified CSS , JS-->
 <link rel="stylesheet" href="/lib/bootstrap-select/css/bootstrap-select.min.css">

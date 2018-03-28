@@ -16,6 +16,13 @@
 <body>
 	<!-- Setting -->
 	<jsp:include page="../layout/library.jsp"></jsp:include>
+	
+	<h1>관리자관리</h1>
+	
+	관리자 목록
+	<br/>
+	
+	
 
 </body>
 </html>

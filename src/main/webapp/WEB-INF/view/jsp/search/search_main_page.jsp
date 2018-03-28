@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>블루팁스</title>
 <jsp:include page="../search/search_main_navbar.jsp"></jsp:include>
+<jsp:include page="../common/sidebar.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/css/common/search_main.css">
 <script>
 
@@ -60,6 +61,14 @@
 		});
 		
 	});
+	
+	function openNav() {
+	    document.getElementById("mySidenav").style.width = "300px";
+	}
+
+	function closeNav() {
+	    document.getElementById("mySidenav").style.width = "0";
+	}
 </script>
 </head>
 <body>
@@ -74,6 +83,10 @@
 		        <button type="button" class="btn btn-info">찾기</button>
 		    </span>
 		</div>
+	</div>
+	
+	<div class="btn-chat">
+		<button type="button" class="btn btn-primary btn-circle btn-xl" onclick="openNav()">챗봇</button>
 	</div>
 </body>
 </html>

@@ -17,4 +17,6 @@ public interface BoardService {
 	public List<InqBoardVo> getRptPostList();
 	
 	public void changeSts(int brdNo);
+	
+	public void banBoard(int no, String reason, String id);
 }

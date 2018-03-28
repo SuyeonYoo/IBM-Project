@@ -131,4 +131,14 @@ public class BoardController {
 		return "";
 	} /////////////////////////해당 게시글로 이동
 
+	@RequestMapping("/ban")
+	@ResponseBody
+	public String banBoard(@RequestParam(required=false, defaultValue="0") int no, @RequestParam String reason, @RequestParam(required=false) String id) {
+		
+		boardService.banBoard(no, reason, id);
+		return "1";
+	}
+	
+	
+	
 }

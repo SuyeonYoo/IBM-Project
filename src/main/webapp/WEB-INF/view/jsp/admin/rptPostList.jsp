@@ -58,7 +58,7 @@ function changeSts(brdNo){
 				게시글 제목 : 
 				<a href="#" onclick="/board/retrieveBrdDetail?brdNo=${list.brdNo}">${list.title }</a>
 				<br/>
-				작성자 : ${list.reqMemId }
+				요청자 : ${list.reqMemId }
 				<br>
 				신고내용 : ${list.inqContent }
 				<br>

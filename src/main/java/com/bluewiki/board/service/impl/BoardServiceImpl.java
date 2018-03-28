@@ -48,6 +48,11 @@ public class BoardServiceImpl implements BoardService{
 		boardMapper.changeBrdSts(brdNo);
 		inqBoardMapper.changeInqBrdSts(brdNo);
 	}
+
+	@Override
+	public void banBoard(int no, String reason, String id) {		
+		inqBoardMapper.banBoard(no, reason, id);
+	}
 	
 	
 	

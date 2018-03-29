@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLUEWIKI</title>
+<title>블루팁스</title>
 <script src="/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){

@@ -47,7 +47,7 @@ public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 				+"LEFT OUTER JOIN BOARD BRD "
 				+"ON INQ.BOARD_NO = BRD.NO "
 			+"WHERE BRD.STATE = '02' "
-				+"AND INQ.STATE = '2' "
+				+"AND INQ.STATE = '02' "
 			+"ORDER BY INQ.DATE ASC")
 	public List<InqBoardVo> getRptPostList();
 	

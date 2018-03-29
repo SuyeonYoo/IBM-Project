@@ -6,8 +6,7 @@
 <title>블루팁스</title>
 <jsp:include page="../search/search_main_navbar.jsp"></jsp:include>
 <jsp:include page="../common/sidebar.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="/css/common/search_main.css">
-<script>
+<script type="text/javascript">
 
 	if (member_id == 'null') {
 		$("#alertModal").find(".modal-body").text("로그인 해주세요.");
@@ -60,16 +59,17 @@
 	    source: ArrResult
 		});
 		
-		openNav();
-		
+		$(".closebtn").hide();
 	});
 	
 	function openNav() {
-	    document.getElementById("mySidenav").style.width = "300px";
+	    document.getElementById("mySidenav").style.width = "350px";
+	    $(".closebtn").show();
 	}
 
 	function closeNav() {
 	    document.getElementById("mySidenav").style.width = "0";
+	    $(".closebtn").hide();
 	}
 </script>
 </head>
@@ -88,7 +88,7 @@
 	</div>
 	
 	<div class="btn-chat">
-		<button type="button" class="btn btn-primary btn-circle btn-xl" onclick="openNav()">챗봇</button>
+		<button type="button" class="btn btn-primary btn-circle btn-xl" onclick="openNav()">ㅊ</button>
 	</div>
 </body>
 </html>

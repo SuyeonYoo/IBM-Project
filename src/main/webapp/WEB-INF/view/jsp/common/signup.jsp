@@ -104,7 +104,7 @@
 	        url : "/mail/sendAuthMail",
 	        type : 'POST',
 	        data : {
-	        	userEmail : userEmail,
+	        	userEmail : userEmail
 	        },
 	        success: function(data){
 	        	callback.mailSendingSuccess(data);

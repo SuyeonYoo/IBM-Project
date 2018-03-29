@@ -4,7 +4,85 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>블루팁스</title>
+<link rel="stylesheet" type="text/css" href="/css/common/chatSidebar.css">
 <script type="text/javascript">
+	
+	var context = "";
+	
+	$(document).ready(function() {
+		getFirstOutput();
+	});
+	
+	//콜백설정
+	var callback = {	
+		getAnswerSuccess : function(data) {
+			
+			console.log(data.answer);
+			console.log(data.context);
+			
+			var appendHTML = "";
+			appendHTML += "<div class='answer'>";
+			appendHTML += data.answer;
+			appendHTML += "</div>";
+			
+			$("#chatMain").append(appendHTML);	
+			context = JSON.stringify(data.context);
+		}
+	}
+	
+	// 챗봇 첫번째 output 얻어오기 
+	function getFirstOutput() {
+		
+		$.ajax({
+	        url : "/chatbot/getFirstOutput",
+	        type : 'POST',
+	        dataType: 'json',
+	        data : {
+	        	isFirst : "true",
+	        },
+	        success: function(data){
+	        	callback.getAnswerSuccess(data);
+	        }
+    	});
+	}
+	
+	// 질문 보여주기
+	function showInput() {
+		
+		var question = $("#textInput").val();
+		$("#textInput").val("");
+		
+		var appendHTML = "";
+		appendHTML += "<div class='questionTop'>"
+		appendHTML += "	<div class='question'>";
+		appendHTML += "		<p>" + question + "</p>";
+		appendHTML += "	</div>";
+		appendHTML += "</div>";
+		
+		$("#chatMain").append(appendHTML);	
+		
+		getNext(question);
+	}
+
+	// 질문하고, 답변하기
+	function getNext(question) {
+		
+		console.log(context);
+		
+		$.ajax({
+	        url : "/chatbot/getNext",
+	        type : 'POST',
+	        dataType: 'json',
+	        data : {
+	        	question : question,		// 사용자의 질문
+	        	context : context			// watson context
+	        },
+	        success: function(data){
+	        	callback.getAnswerSuccess(data);
+	        }
+    	});
+	}
+	
 </script>
 </head>
 <body>
@@ -13,11 +91,11 @@
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<div class="chat-title">대화하기</div>
 		</div>
-		<div class="chatMain">
-			<div class="question">
-				ㅎㅎㅎㅎ
-			</div>
+		<div class="chatMain" id="chatMain">
 		</div>
+		<label for="textInput" class="inputOutline">
+        	<input id="textInput" class="" placeholder=" 궁금한게 뭐예요?" type="text" onkeypress="if(event.keyCode==13){showInput();}" style="width:100%">
+        </label>
 	</div>
 </body>
 </html>

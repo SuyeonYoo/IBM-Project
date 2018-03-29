@@ -42,7 +42,7 @@ public interface MemberMapper {
 			+ "WHERE MEMBER_ID = #{member_id}")
 	public void changeSts(@Param("member_id")String memberId);
 
-	@Select("SELECT * "
+	@Select("SELECT MEMBER_ID AS MEMBERID, PWD, STATE, AUTHORITY "
 			+ "FROM MEMBER "
 			+ "WHERE MEMBER_ID = #{member_id} "
 			+ "AND PWD = #{pwd}" )

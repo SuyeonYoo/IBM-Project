@@ -232,6 +232,8 @@ public class CommonController {
 			String inputId = (String)paramMap.get("memberId");
 			String inputPwd = (String)paramMap.get("pwd");
 			
+			System.out.println("여기" + member.getMemberId() + member.getPwd());
+			
 			if (member.getMemberId().equals(inputId) && member.getPwd().equals(inputPwd)) {
 				resultData = "success";
 				session.setAttribute("member_id", member.getMemberId());

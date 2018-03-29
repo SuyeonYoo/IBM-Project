@@ -60,6 +60,8 @@
 	    source: ArrResult
 		});
 		
+		openNav();
+		
 	});
 	
 	function openNav() {

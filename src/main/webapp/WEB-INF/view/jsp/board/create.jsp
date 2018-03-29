@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/fileUpload.css">
-<title>BLUEWIKI_create</title>
+<title>블루팁스_create</title>
 </head>
 <body>
 	<!-- Navbar -->

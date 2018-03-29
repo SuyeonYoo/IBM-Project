@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+html,
+body {
+	font-family: 'nanumsquareB', sans-serif;
+	height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.welcome-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.logoName {
+	font-size: 50px;
+}
+
+.logoImg {
+	width: 70%;
+}
+
+.startBtn {
+	margin-top: 20px;
+	width: 100%
+}

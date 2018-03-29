@@ -42,3 +42,10 @@
 <!-- typeahead -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+
+<!-- autosize -->
+<script src="/lib/autosize/autosize.min.js"></script> 
+
+<!-- smartEditor -->
+<script type="text/javascript" src="/lib/smarteditor2/demo/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+

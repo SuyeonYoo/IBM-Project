@@ -76,7 +76,7 @@
 <body>
 	<div class="container">
 		<div class="row" style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
-			<img class="align-bottom logoImg" src="/img/mainLogo.PNG"> 
+			<img class="align-bottom logoImg" src="../img/mainLogo.png"> 
 		</div>
 	    
 	    <div class="input-group" style="width:50%; margin:0 auto;">

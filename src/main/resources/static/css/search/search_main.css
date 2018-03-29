@@ -9,6 +9,33 @@ body {
 	width: 40%;
 }
 
+.btn-info {
+    color: #fff;
+    background-color: #314561;
+    border-color: #314561;
+}
+.btn-info:active {
+    color: #fff;
+    background-color: #314561;
+    border-color: #000000;
+}
+.btn-info:hover {
+    color: #fff;
+    background-color: #314561;
+    border-color: #000000;
+}
+.btn-info:focus {
+    color: #fff;
+    background-color: #314561;
+    border-color: #000000;
+}
+.btn-info:active:focus {
+    color: #fff;
+    background-color: #314561;
+    border-color: #000000;
+}
+
+
 .btn-circle.btn-xl {
   width: 70px;
   height: 70px;

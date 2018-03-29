@@ -20,7 +20,7 @@
 	<div class="intro">
 			<div class="intro-text">
 		    	<div class="row" style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
-					<img class="align-bottom logoImg" src="/img/mainLogo.PNG"> 
+					<img class="align-bottom logoImg" src="../img/mainLogo.png"> 
 				</div>
 		    	<hr>
 		    	<p>즐거운 지식공유 플랫폼</p>

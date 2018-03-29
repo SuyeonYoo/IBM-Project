@@ -263,7 +263,7 @@
 		<form class="form-signin" method="POST" onsubmit="return false;">
 			
 			<div class="row" style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
-				<img class="align-bottom logoImg" src="/img/mainLogo.PNG"> 
+				<img class="align-bottom logoImg" src="../img/mainLogo.png"> 
 			</div>
 			
 			<div class="form-label-group">

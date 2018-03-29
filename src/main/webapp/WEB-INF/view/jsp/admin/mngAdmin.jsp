@@ -14,6 +14,9 @@
 </script>
 </head>
 <body>
+
+<!-- Navbar -->
+<jsp:include page="../layout/navbar.jsp"></jsp:include>
 	<!-- Setting -->
 	<jsp:include page="../layout/library.jsp"></jsp:include>
 	

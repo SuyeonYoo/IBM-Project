@@ -6,8 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BLUEWIKI</title>
-<!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/css/common/signin.css">
 <script src="/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -47,10 +45,11 @@ function changeSts(memId){
 </script>
 </head>
 <body>
-	<!-- Setting -->
-	<jsp:include page="../layout/library.jsp"></jsp:include>
 
+<!-- Navbar -->
+<jsp:include page="../layout/navbar.jsp"></jsp:include>
 
+<div class="container">
 	<h1>신고회원목록</h1><br>
 
 	<c:choose>
@@ -69,6 +68,8 @@ function changeSts(memId){
 			신고된 회원이 없습니다.	
 		</c:otherwise>
 	</c:choose>
+	
+	</div>
 	
 	<!-- Modal -->
 	<div class="modal fade" id="alertModal" role="dialog">

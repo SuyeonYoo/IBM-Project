@@ -9,6 +9,8 @@
 <link rel="stylesheet" type="text/css" href="/css/common/signin.css">
 <script type="text/javascript">
 
+	var loadingBar = true;
+	
 	//콜백설정
 	var callback = {		
 		signInSuccess : function(data) {

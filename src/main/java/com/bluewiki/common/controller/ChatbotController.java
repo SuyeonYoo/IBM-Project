@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,6 +34,9 @@ public class ChatbotController {
 
 	@Autowired
 	protected Conversation conversation;
+	
+	@Autowired
+	protected HttpSession httpSession;
 	
 	/**
 	 * getFirstOutput
@@ -63,9 +69,9 @@ public class ChatbotController {
 			}
 			
 			context = response.getContext();	// 다음을 위한 context
+			httpSession.setAttribute("context", context);
 			
 			result.put("answer", answer);		// 답변
-			result.put("context", context);		// context
 		}
 		
 		return new ResponseEntity<HashMap<String, Object>>(result,HttpStatus.OK);
@@ -81,19 +87,9 @@ public class ChatbotController {
 	public ResponseEntity<HashMap<String, Object>> getNext(@RequestParam Map<String, Object> paramMap) throws Exception{
 		
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		Context context = null;		// Watson context
-		String stringContext = (String)paramMap.get("context");
+		Context sessionContext = (Context)httpSession.getAttribute("context");		// Watson context
 		String question = (String)paramMap.get("question");		// 사용자의 질문
 		String answer = ""; 									// Watson 새로운 대답 
-		
-		JSONParser parser = new JSONParser();
-		JSONObject json = (JSONObject)parser.parse(stringContext);
-		
-		System.out.println("gg" + json);
-		
-		System.out.println("input context" + context);
-		System.out.println("input question" + question);
-		System.out.println("string context" + stringContext);
 		
 		// conversation 기본정보
 		conversation = new Conversation("2018-02-16");
@@ -103,11 +99,9 @@ public class ChatbotController {
 		InputData input = new InputData.Builder(question).build();
 		MessageOptions options = new MessageOptions.Builder().workspaceId(workspaceId)
 								.input(input)
-								.context(context) // output context from the first message
+								.context(sessionContext) // output context from the first message
 								.build();
 		MessageResponse response = conversation.message(options).execute();
-		
-		System.out.println(response);
 		
 		List<String> textList = new ArrayList<String>();
 		textList = response.getOutput().getText();			// 답변 얻기
@@ -116,11 +110,11 @@ public class ChatbotController {
 			answer += textList.get(i) + "\n";
 		}
 		
-		context = response.getContext();	// 다음을 위한 context
-		System.out.println("컨"+context);
+		Context newContext = response.getContext();	// 다음을 위한 context
+		httpSession.removeAttribute("context");
+		httpSession.setAttribute("context", newContext);
 		
 		result.put("answer", answer);		// 답변
-		result.put("context", context);		// context
 		
 		return new ResponseEntity<HashMap<String, Object>>(result,HttpStatus.OK);
 	}
@@ -133,6 +127,8 @@ public class ChatbotController {
 	@GetMapping("/first")
 	public ModelAndView loadFirstPage() throws Exception{
 		ModelAndView mv = new ModelAndView("/common/welcome");
+		
+		System.out.println(httpSession.getAttribute("member_id"));
 		
 		conversation = new Conversation("2017-05-26");
 		conversation.setUsernameAndPassword("6aea7c6e-ff85-469c-97bf-c0faaa28584c", "rsnbc5VGuz5K");

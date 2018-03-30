@@ -9,27 +9,27 @@ body {
 	width: 40%;
 }
 
-.btn-info {
+.btn-info2 {
     color: #fff;
     background-color: #314561;
     border-color: #314561;
 }
-.btn-info:active {
+.btn-info2:active {
     color: #fff;
     background-color: #314561;
     border-color: #000000;
 }
-.btn-info:hover {
+.btn-info2:hover {
     color: #fff;
     background-color: #314561;
     border-color: #000000;
 }
-.btn-info:focus {
+.btn-info2:focus {
     color: #fff;
     background-color: #314561;
     border-color: #000000;
 }
-.btn-info:active:focus {
+.btn-info2:active:focus {
     color: #fff;
     background-color: #314561;
     border-color: #000000;

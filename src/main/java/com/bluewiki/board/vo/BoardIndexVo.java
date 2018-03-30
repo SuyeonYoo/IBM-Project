@@ -5,9 +5,7 @@ public class BoardIndexVo {
 	int no;
 	String numbering;
 	String title;
-	int dept;
-	int sort;
-	
+
 	public int getNo() {
 		return no;
 	}
@@ -26,19 +24,5 @@ public class BoardIndexVo {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getDept() {
-		return dept;
-	}
-	public void setDept(int dept) {
-		this.dept = dept;
-	}
-	public int getSort() {
-		return sort;
-	}
-	public void setSort(int sort) {
-		this.sort = sort;
-	}
-	
-	
 
 }

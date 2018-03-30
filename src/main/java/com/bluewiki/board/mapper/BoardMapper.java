@@ -2,11 +2,13 @@ package com.bluewiki.board.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.bluewiki.board.vo.BoardContentVo;
 import com.bluewiki.board.vo.BoardIndexVo;
 import com.bluewiki.board.vo.BoardVo;
 import com.bluewiki.board.vo.InqBoardVo;
@@ -20,7 +22,7 @@ public interface BoardMapper {
 public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 	
 	
-	@Select("SELECT no, title, content, state, "
+	@Select("SELECT no, title, state, "
 			+ "DATE_FORMAT(reg_date, '%Y-%m-%d') reg_date, "
 			+ "DATE_FORMAT(reg_time, '%H:%i:%s') reg_time, "
 			+ "sec_state, writer, cnt_like, third_cate_id "
@@ -28,12 +30,33 @@ public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 	+ "WHERE title = #{title}")
 	public BoardVo selectMatchTitle(@Param("title") String title);
 	
-	@Select("SELECT numbering, title, dept, sort "
+	@Select("SELECT * "
+	+ "FROM BOARD_CONTENT "
+	+ "WHERE board_no = #{board_no}")
+	public List<BoardContentVo> selectContent(@Param("board_no") String board_no);
+	
+	@Select("SELECT numbering, title "
 			+ "FROM BOARD_INDEX "
-			+ "WHERE board_no = #{no} "
-			+ "ORDER BY sort")
+			+ "WHERE board_no = #{no}")
 	public List<BoardIndexVo> selectIndexList(@Param("no") int no);
 	
+	@Insert("INSERT INTO BOARD"
+			+"(title, content_no, writer) "
+			+"VALUES"
+			+"(#{title}, #{content_no}, #{writer})")
+	public BoardVo insertBoard(BoardVo vo);
+	
+	@Insert("INSERT INTO BOARD_INDEX"
+			+"(numbering, title, board_no) "
+			+"VALUES"
+			+"(#{numbering}, #{title}, #{board_no})")
+	public BoardIndexVo insertIndex(BoardIndexVo vo);
+	
+	@Insert("INSERT INTO BOARD_CONTENT"
+			+"(numbering, title, board_no) "
+			+"VALUES"
+			+"(#{numbering}, #{title}, #{board_no})")
+	public BoardContentVo insertContent(BoardContentVo vo);
 	
 	@Select("SELECT " 
 				+"INQ.NO AS INQNO, "

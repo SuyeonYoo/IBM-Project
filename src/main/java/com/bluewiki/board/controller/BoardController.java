@@ -72,7 +72,6 @@ public class BoardController {
 		try {
 			mainPageMv.addObject("result", boardService.selectMatchTitle(title));
 			mainPageMv.addObject("indexList", boardService.selectIndexList(boardService.selectMatchTitle(title).getNo()));
-			System.out.println(">>>>>>>>>>>>>>>>>>>" + boardService.selectIndexList(boardService.selectMatchTitle(title).getNo()));
 			mainPageMv.addObject("rsltMsg", "success");
 			
 			return mainPageMv;
@@ -82,8 +81,8 @@ public class BoardController {
 			title = URLEncoder.encode(title,"UTF-8");
 			
 			String url = "redirect:/board/noResult/"+title;
-			System.out.println(url);
-			return new ModelAndView(url);
+			System.out.println(url.replace("+", " "));
+			return new ModelAndView(url.replace("+", " "));
 		}
 		
 	}

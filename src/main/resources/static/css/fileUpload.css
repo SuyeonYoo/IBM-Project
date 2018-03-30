@@ -1,3 +1,8 @@
+@font-face {
+   font-family: 'nanumsquareB'; /* 폰트 패밀리 이름 주기*/
+   src: url(/font/NANUMSQUAREB.TTF); /*폰트 파일 주소*/
+}
+
 .hide
 {
 	display:none;
@@ -5,7 +10,7 @@
 
 .btn-file
 {
-  line-height: 400px;
+  line-height: 200px;
   width : 350px;
   text-align: center
   
@@ -36,7 +41,26 @@
   background: #eeeeee;
   display: table;
   border: 2px dashed #ccc;
-  border-left: 5px solid #78A9Ed;
+  border-left: 5px solid #314561;
+  background-position: calc(100% - 10px) 10px;
+  background-repeat: no-repeat;
+  background-size: 25px;
+    
+	margin-left: 8px;
+	margin-top: 8px;
+	color: black;
+	font-size: 15px;
+	text-align: left;
+	width:100%;
+	height:50px;
+}
+
+.static
+{
+  background: #fff;
+  display: table;
+  border: 2px dashed #ccc;
+  border-left: 5px solid #314561;
   background-position: calc(100% - 10px) 10px;
   background-repeat: no-repeat;
   background-size: 25px;

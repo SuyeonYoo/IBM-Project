@@ -55,7 +55,7 @@ public class ChatbotController {
 			// conversation 기본정보
 			conversation = new Conversation("2018-02-16");
 			conversation.setUsernameAndPassword("6aea7c6e-ff85-469c-97bf-c0faaa28584c", "rsnbc5VGuz5K");
-			String workspaceId = "7d07f499-2c31-43d1-9095-0c9d7c964bc9";
+			String workspaceId = "aff953f6-b6e2-47d9-89d0-e06790af9d99";
 
 			InputData input = new InputData.Builder("").build();
 			MessageOptions options = new MessageOptions.Builder(workspaceId).input(input).build();
@@ -94,7 +94,7 @@ public class ChatbotController {
 		// conversation 기본정보
 		conversation = new Conversation("2018-02-16");
 		conversation.setUsernameAndPassword("6aea7c6e-ff85-469c-97bf-c0faaa28584c", "rsnbc5VGuz5K");
-		String workspaceId = "7d07f499-2c31-43d1-9095-0c9d7c964bc9";
+		String workspaceId = "aff953f6-b6e2-47d9-89d0-e06790af9d99";
 
 		InputData input = new InputData.Builder(question).build();
 		MessageOptions options = new MessageOptions.Builder().workspaceId(workspaceId)

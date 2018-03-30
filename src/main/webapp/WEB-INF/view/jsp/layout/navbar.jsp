@@ -56,9 +56,16 @@
 	 			<li id="top15"><a class="nav-align cursor"><i class="far fa-heart fa-lg grayscale cursor"></i>&nbsp;&nbsp;&nbsp;Top15</a></li>
 	    </ul>
 	    
-	    <ul class="nav navbar-nav navbar-right">
-	       <li><a class="nav-align cursor"><i class="fas fa-user fa-lg grayscale cursor"></i>&nbsp;&nbsp;&nbsp;</a></li>
-	     </ul>
+	    <ul class="nav navbar-nav navbar-right" style="padding-top:10px;">
+	    	<li class="dropdown">
+       			<a class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user fa-lg grayscale"></i>&nbsp;</a>
+       			<ul class="dropdown-menu">
+       				<li class="dropdown-header">환영합니다 :)<br><%=(String)session.getAttribute("member_id")%></li>
+				    <li class="divider"></li>
+      				<li><a href="#">로그아웃</a></li>
+			    </ul>
+       		</li>
+	    </ul>
 	    
 	    <!-- 검색어 입력하는 부분 -->
 	    <form class="navbar-form navbar-right" id="frmSearchtxt" method="GET">

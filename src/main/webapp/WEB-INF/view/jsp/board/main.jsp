@@ -43,9 +43,6 @@
 			<div class="row">
 				<div class="col-xs-6" style="border:1px solid #ccc;">
 					<c:forEach var="index" varStatus="status" items="${indexList}" step="1" begin="0">
-						<c:forEach var="space" step="1" begin="2" end="${index.dept}">
-							&nbsp;
-						</c:forEach>
 						 ${index.numbering}&nbsp;&nbsp;${index.title}<br>
 					</c:forEach>
 				</div>
@@ -113,32 +110,6 @@
 </body>
 <script>
 $( document ).ready(function() {
-/* 검색 버튼 클릭 시*/
-$("#btnSearch").click(function(){
-	var title = $("[name=title]").val();
-	var data = {"title" : title};
-	
-	$.ajax({
-		type : 'POST',
-    url : '/board/index',
-    data : data,
-    success:function(result){
-    	
-    	if(result.resultList.length > 0)
-    		ArrResult.length = 0;
-    	
-			for (var i=0; i < result.resultList.length; i++){
-				ArrResult.push(result.resultList[i].title);	
-			}
-			console.log(ArrResult);
-			}
-	});
-
-	/* $("#frmSearchtxt").attr("action", "/main/"+title).submit(); */
-	$(location).attr('href', "/board/main/"+title);
-
-});
-
 
 $("#btn_ban").on("click", function(){
 	

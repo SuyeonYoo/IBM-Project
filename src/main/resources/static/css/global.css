@@ -14,7 +14,7 @@
 }
 
 .stylish-input-group .input-group-addon{
-    background: white !important; 
+    background: white;
 }
 
 .stylish-input-group .form-control{
@@ -29,7 +29,7 @@
 }
 
 .grayscale{
-   color: #535353 !important; 
+   color: #314561 !important; 
 }
 
 textarea{
@@ -43,11 +43,7 @@ textarea{
 .logo {
     position: absolute;
 		left: 15px;
-    top: 13px;
-}
-
-.logo-text {
-		color: #444 !important;
+    top: 2px;
 }
 
 .box {
@@ -64,14 +60,38 @@ input::-webkit-calendar-picker-indicator {
 
 .navbar-default{
 	background-color:#ffffff;
+	border-bottom-color:#314561;
 	border-bottom-style: solid;
 	border-bottom-width: 3px;
 	padding-top: 8px;
 	padding-bottom: 8px;
 }
 
+.navbar-default .navbar-nav>li>a {
+    color: #000 !important;
+}
+
 .index-input{
 	border: none;
 	border-bottom: 1px dashed;
 	width: 80%;
+}
+
+.nav-align {
+    padding-top: 25px !important;	 
+}
+
+#frmSearchtxt {
+	 padding-top: 10px !important;	 
+}
+
+.searchbtn{
+	background:#314561 !important;
+	color:#efefef !important;
+	border:4px solid #314561;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+  color:#fff;
+	background-color:#314561 !important;
 }

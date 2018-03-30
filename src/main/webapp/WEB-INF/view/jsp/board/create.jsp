@@ -68,6 +68,8 @@
 
 var numbering = 1;
 var crtInputId = "";
+var oEditors = [];
+
 $( document ).ready(function() {
 	
 	/* 정의 클릭 시*/
@@ -115,7 +117,6 @@ $( document ).ready(function() {
 		 $.when($('#contentDiv').append("<div id='contentIndex"+numbering+"' class='row'><span id='indexContentSpan"+numbering+"'>"+numbering+
 				 ". </span><input type='text' id='indexContentText"+numbering+"' class='index-input margin-bottom' readonly/>"+
 				 "<textarea id='contentTxtarea"+numbering+"' class='form-control main-content'></textarea></div>")).then(function(){
-					 var oEditors = [];
 					 nhn.husky.EZCreator.createInIFrame({
 					     oAppRef: oEditors,
 					     elPlaceHolder: "contentTxtarea"+(numbering-1),

@@ -44,7 +44,9 @@
 	    document.getElementById("mySidenav").style.width = "0";
 	    $(".closebtn").hide();
 	}
+	
 </script>
+<script type="text/javascript" src="/js/search.js"></script>
 </head>
 <body>
 	<div class="container">

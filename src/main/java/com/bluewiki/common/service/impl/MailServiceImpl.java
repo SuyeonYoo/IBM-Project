@@ -47,16 +47,16 @@ public class MailServiceImpl implements MailService{
 	    
 	    try {
 	    	helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
-	    	from = new InternetAddress("bori77bluemix@gmail.com", "Bluewiki", "UTF-8");
+	    	from = new InternetAddress("bori77bluemix@gmail.com", "Bluetips", "UTF-8");
 	    	
-	    	String htmlMsg = "<h3>IBMer의 공간 Bluewiki</h3><br/>"
+	    	String htmlMsg = "<h3>IBMer의 공간 블루팁스</h3><br/>"
 	    				   + "<p>인증번호 : " + verifyNum + "</p>"
 	    				   + "<p>인증번호를 화면에 입력해주세요!</p>";
 			mimeMessage.setContent(htmlMsg, "text/html; charset=UTF-8");
 			
 			helper.setTo(userEmail);
 		    helper.setFrom(from);
-		    helper.setSubject("[Bluewiki] 회원가입 인증메일 입니다.");
+		    helper.setSubject("[블루팁스] 회원가입 인증메일 입니다.");
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {

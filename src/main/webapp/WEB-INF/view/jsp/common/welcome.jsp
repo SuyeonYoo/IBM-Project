@@ -18,7 +18,7 @@
 	<div class="container">
 		<div class="welcome-box">
 			<div style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
-				<img class="align-bottom logoImg" src="/img/mainLogo.PNG"> 
+				<img class="align-bottom logoImg" src="../img/mainLogo.png"> 
 			</div>
 			
 			<button class="btn btn-info startBtn" onclick="moveSignInPage();">드디어 시작하기</button>

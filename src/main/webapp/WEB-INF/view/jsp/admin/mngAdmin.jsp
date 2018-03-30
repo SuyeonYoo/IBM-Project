@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLUEWIKI</title>
+<title>블루팁스</title>
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="/css/common/signin.css">
 <script src="/lib/jquery/jquery.min.js"></script>
@@ -14,6 +14,9 @@
 </script>
 </head>
 <body>
+
+<!-- Navbar -->
+<jsp:include page="../layout/navbar.jsp"></jsp:include>
 	<!-- Setting -->
 	<jsp:include page="../layout/library.jsp"></jsp:include>
 	

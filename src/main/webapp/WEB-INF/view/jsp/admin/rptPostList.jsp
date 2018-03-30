@@ -4,9 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLUEWIKI</title>
-<!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/css/common/signin.css">
+<title>블루팁스</title>
 <script src="/lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -47,14 +45,18 @@ function changeSts(brdNo){
 </script>
 </head>
 <body>
-	<!-- Setting -->
-	<jsp:include page="../layout/library.jsp"></jsp:include>
+
+<!-- Navbar -->
+<jsp:include page="../layout/navbar.jsp"></jsp:include>
+
+	
+<div class="container">
 
 	<h1>신고게시물목록</h1><br>
-
 	<c:choose>
 		<c:when test="${not empty requestScope.result }">
 			<c:forEach items="${requestScope.result }" var ="list">
+				<div style="border-style: ridge; width:260px; height:150px;">
 				게시글 제목 : 
 				<a href="#" onclick="/board/retrieveBrdDetail?brdNo=${list.brdNo}">${list.title }</a>
 				<br/>
@@ -73,16 +75,19 @@ function changeSts(brdNo){
 				</c:if> --%>
 				<br>
 				게시글no : ${list.brdNo }
-				
+				<br/>
 				<a href="#" onclick="changeSts('${list.brdNo }')">정상으로 복구하기</a>
-				============================
 				<br>
+			</div>
+			<br>
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
 			신고된 게시글이 없습니다.	
 		</c:otherwise>
 	</c:choose>
+	
+</div>
 
 	<!-- Modal -->
 	<div class="modal fade" id="alertModal" role="dialog">
@@ -90,7 +95,7 @@ function changeSts(brdNo){
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title">BLUEWIKI</h4>
+	          <h4 class="modal-title">블루팁스</h4>
 	        </div>
 	        <div class="modal-body">
 	          <p name="modalCnts">This is a small modal.</p>

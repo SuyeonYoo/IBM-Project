@@ -21,6 +21,7 @@
 			}
 		}
 	}
+	
 	// 로그인
 	function signin() {
 		
@@ -90,7 +91,7 @@
 	<div class="container">
 		<form class="form-signin" method="POST" onsubmit="return false;">
 			<div class="row" style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
-				<img class="align-bottom logoImg" src="/img/mainLogo.PNG"> 
+				<img class="align-bottom logoImg" src="../img/mainLogo.png"> 
 			</div>
 			
 			<div class="form-label-group">
@@ -112,7 +113,7 @@
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title">BLUEWIKI</h4>
+	          <h4 class="modal-title">블루팁스</h4>
 	        </div>
 	        <div class="modal-body">
 	          <p name="modalCnts">This is a small modal.</p>
@@ -129,7 +130,7 @@
 	  <div class="modal-dialog modal-sm" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+	        <h5 class="modal-title" id="exampleModalLabel">블루팁스</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>

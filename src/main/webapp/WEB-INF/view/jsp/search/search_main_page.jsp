@@ -12,7 +12,7 @@
     min-width: 90%;
 }
 </style>
-<script>
+<script type="text/javascript">
 
 	if (member_id == 'null') {
 		$("#alertModal").find(".modal-body").text("로그인 해주세요.");
@@ -30,14 +30,19 @@
 			}
 		});
 	});
-
+	
+	$(document).ready(function() {
+		$(".closebtn").hide();
+	});
 	
 	function openNav() {
-	    document.getElementById("mySidenav").style.width = "300px";
+	    document.getElementById("mySidenav").style.width = "350px";
+	    $(".closebtn").show();
 	}
 
 	function closeNav() {
 	    document.getElementById("mySidenav").style.width = "0";
+	    $(".closebtn").hide();
 	}
 	
 </script>
@@ -46,7 +51,7 @@
 <body>
 	<div class="container">
 		<div class="row" style="text-align: center; margin-bottom: 30px; margin-top: 15%;">
-			<img class="align-bottom logoImg" src="/img/mainLogo2.PNG"> 
+			<img class="align-bottom logoImg" src="../img/mainLogo.png"> 
 		</div>
 	    
 	    <div class="input-group" style="width:50%; margin:0 auto;">
@@ -58,7 +63,7 @@
 	</div>
 	
 	<div class="btn-chat">
-		<button type="button" class="btn btn-primary btn-circle btn-xl" onclick="openNav()">챗봇</button>
+		<button type="button" class="btn btn-primary btn-circle btn-xl" onclick="openNav()">ㅊ</button>
 	</div>
 </body>
 </html>

@@ -6,6 +6,12 @@
 <title>블루팁스</title>
 <jsp:include page="../search/search_main_navbar.jsp"></jsp:include>
 <jsp:include page="../common/sidebar.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="/css/common/search_main.css">
+<style type="text/css">
+.dropdown-menu {
+    min-width: 90%;
+}
+</style>
 <script type="text/javascript">
 
 	if (member_id == 'null') {
@@ -24,41 +30,8 @@
 			}
 		});
 	});
-
-	var ArrResult = new Array();
 	
 	$(document).ready(function() {
-		$('#search').focus();
-		
-		/* 검색어 입력 시 */
-		$("#search").keyup(function(){
-			var title = $("[name=title]").val();
-			var data = {"title" : title};
-			console.log(title);
-			
-			$.ajax({
-				type : 'POST',
-	      url : '/board/searchtxt',
-	      data : data,
-	      success:function(result){
-	      	
-	      	if(result.resultList.length > 0)
-	      		ArrResult.length = 0;
-	      	
-					for (var i=0; i < result.resultList.length; i++){
-						ArrResult.push(result.resultList[i].title);	
-					}
-					console.log(ArrResult);
-	
-	      }
-	  	});
-		});	
-		
-		/* 검색어  자동완성 */
-		$('#search').typeahead({
-	    source: ArrResult
-		});
-		
 		$(".closebtn").hide();
 	});
 	
@@ -80,9 +53,9 @@
 		</div>
 	    
 	    <div class="input-group" style="width:50%; margin:0 auto;">
-		    <input type="text" class="form-control" id="search" placeholder="궁금한게 뭐예요?">
+		    <input type="text" class="form-control" id="search" placeholder="궁금한게 뭐예요?" name="title">
 		    <span class="input-group-btn">
-		        <button type="button" class="btn btn-info">찾기</button>
+		        <button type="button" class="btn btn-info" id="btnSearch">찾기</button>
 		    </span>
 		</div>
 	</div>

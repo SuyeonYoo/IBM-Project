@@ -10,6 +10,7 @@
 <body>
 	<!-- Navbar -->
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
+	<jsp:include page="../common/sidebar.jsp"></jsp:include>
 	<div class="container">
 		<div class="alert alert-info" role="alert">
 			<span style="font-size:15pt"><b style="font-size:20pt"> ${title} </b> 에 해당하는 검색결과가 없습니다. </span>
@@ -20,6 +21,10 @@
 			<button type="button" class="btn btn-default" id="btnCreate" onclick="create('${title}');"><i class="fas fa-pencil-alt"></i></button>
 		</div>
 	</div>
+	
+	<div class="btn-chat">
+		<button type="button" class="btn btn-primary btn-circle btn-xl" onclick="openNav()">ㅊ</button>
+	</div>	
 </body>
 
 <script>
@@ -54,6 +59,18 @@ $( document ).ready(function() {
 /* 글쓰기 버튼 클릭 시*/
 function create(title){
 	location.href="/board/create/"+title;
+}
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "350px";
+    $(".closebtn").show();
+    $("#search").hide();
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    $(".closebtn").hide();
+    $("#search").show();
 }
 
 </script>

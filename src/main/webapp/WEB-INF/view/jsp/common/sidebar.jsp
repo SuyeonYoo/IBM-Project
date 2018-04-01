@@ -28,6 +28,8 @@
 	// 챗봇 첫번째 output 얻어오기 
 	function getFirstOutput() {
 		
+		console.log("get first");
+		
 		$.ajax({
 	        url : "/chatbot/getFirstOutput",
 	        type : 'POST',

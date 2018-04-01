@@ -5,55 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>블루팁스</title>
-<script>
-	$( document ).ready(function() {
-	
-		$("#btn_ban").on("click", function(){
-			
-			$("#newPostModal").modal();
-		});
-
-		$("#modalBtnSubmit").on("click", function(){
-		
-			$.ajax({
-		        url : "/board/ban",
-		        type : 'POST',
-		        data : {
-		        	no : $("#no").val(),
-		        	reason : $("#reason :selected").val(),
-		        	id : $("#id").val()
-		        },
-		        success: function(data){
-		        	if(data == "1"){
-			        	$("#alertModal").find(".modal-body").text("해당 게시글을 관리자에게 신고하였습니다.");
-						$("#alertModal").modal();
-						
-						$("#modalClose").on("click", function(){						
-							location.reload();
-						});
-		        	}
-		        },
-		        error:function(request,status,error){
-		            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		            $("#alertModal").find(".modal-body").text("해당 게시글을 신고하는데 오류가 발생했습니다.");
-					$("#alertModal").modal();
-		        }
-			});	
-		});
-	});	
-</script> 
+<title>블루팁스</title> 
 </head>
 <body style="font-family: 'nanumsquareB', sans-serif;">
 	<!-- Navbar -->
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
+	<jsp:include page="../common/sidebar.jsp"></jsp:include>
 	
 	<div class="container">
 	<c:if test="${result.title} eq null" >
 		검색결과가 없습니다.
 	</c:if>
 	<!-- 본문 -->
-		<div class="col-xs-9 box">
+		<div class="col-xs-10 box">
 			<div class="row">
 				<!-- 제목 -->
 				<div class="col-xs-6 text-left">
@@ -94,7 +58,7 @@
 		</div>
 		
 		<!-- 오른쪽 페이지 -->
-		<div class="col-xs-3">
+		<div class="col-xs-2">
 		</div>
 	</div>
 	
@@ -148,5 +112,58 @@
 	      </div>
 	    </div>
 	</div>	
+	
+	<div class="btn-chat">
+		<button type="button" class="btn btn-primary btn-circle btn-xl" onclick="openNav()">ㅊ</button>
+	</div>	
 </body>
+<script>
+	$( document ).ready(function() {
+	
+		$("#btn_ban").on("click", function(){
+			
+			$("#newPostModal").modal();
+		});
+
+		$("#modalBtnSubmit").on("click", function(){
+		
+			$.ajax({
+		        url : "/board/ban",
+		        type : 'POST',
+		        data : {
+		        	no : $("#no").val(),
+		        	reason : $("#reason :selected").val(),
+		        	id : $("#id").val()
+		        },
+		        success: function(data){
+		        	if(data == "1"){
+			        	$("#alertModal").find(".modal-body").text("해당 게시글을 관리자에게 신고하였습니다.");
+						$("#alertModal").modal();
+						
+						$("#modalClose").on("click", function(){						
+							location.reload();
+						});
+		        	}
+		        },
+		        error:function(request,status,error){
+		            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		            $("#alertModal").find(".modal-body").text("해당 게시글을 신고하는데 오류가 발생했습니다.");
+					$("#alertModal").modal();
+		        }
+			});	
+		});
+	});	
+	
+	function openNav() {
+	    document.getElementById("mySidenav").style.width = "350px";
+	    $(".closebtn").show();
+	    $("#search").hide();
+	}
+
+	function closeNav() {
+	    document.getElementById("mySidenav").style.width = "0";
+	    $(".closebtn").hide();
+	    $("#search").show();
+	}
+</script>
 </html>

@@ -1,22 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>블루팁스</title>
+
 </head>
 <body style="font-family: 'nanumsquareB', sans-serif;">
 	<!-- Navbar -->
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
+	<jsp:include page="../common/sidebar.jsp"></jsp:include>
 	
 	<div class="container">
 	<c:if test="${result.title} eq null" >
 		검색결과가 없습니다.
 	</c:if>
 	<!-- 본문 -->
-		<div class="col-xs-9 box">
+		<div class="col-xs-10 box">
 			<div class="row">
 				<!-- 제목 -->
 				<div class="col-xs-6 text-left">
@@ -52,7 +53,7 @@
 			</div>
 			
 			<!-- 컨텐츠 --> 
-			<div class="row" id="realCnts" style="padding-top: 20px;">
+			<div class="row" id="realCnts" style="padding-top: 10px; padding-bottom: 10px;">
 				<div class="col-xs-12" style="padding-top: 20px;">
 					<h3 style="border-bottom: 1px solid #ccc;">1. 체크포인트가 뭐예요?</h3>
 					<p><blockquote><mark style="font-size: 14pt;">Checkpoint 계절이 돌아왔네요.</mark><br/>
@@ -64,13 +65,13 @@
 					</p>
 				</div>
 				
-				<div class="col-xs-12" style="padding-top: 20px;">
+				<div class="col-xs-12" style="padding-top: 10px; padding-bottom: 10px;">
 					<h3 style="border-bottom: 1px solid #ccc;">2. 체크포인트 작성은 어떤 언어로 해야하나요?</h3>
 					<p><mark style="font-size: 14pt;">영어</mark>로 작성하셔야 되요<br/><br/></p>
 					<img src="/img/englishOnly.jpg"></img>
 				</div>
 				
-				<div class="col-xs-12" style="padding-top: 20px;">
+				<div class="col-xs-12" style="padding-top: 10px; padding-bottom: 10px;">
 					<h3 style="border-bottom: 1px solid #ccc;">3. 체크포인트 예시문장이 있나요?</h3>
 					<p class="bg-info" style="text-align:center; font-size: 12pt;">개발자</p>
 					<ul>
@@ -87,7 +88,7 @@
 					</ul>
 				</div>
 				
-				<div class="col-xs-12" style="padding-top: 20px;">
+				<div class="col-xs-12" style="padding-top: 10px; padding-bottom: 10px;">
 					<h3 style="border-bottom: 1px solid #ccc;">4. 2018 체크포인트 안내메일</h3>
 					<p>IBM Checkpoint | 2018년 목표를 3/31일까지 입력하십시요.</p>
 					<p>Checkpoint는 IBM의 성과관리 체계에서 조직과 팀의 우선순위 및 목표에 기반하는 개인화된 목표를 Checkpoint Tracker를 통해 설정한 후, 목표의 진척 상황을 지속적/정기적으로 업데이트 할 수 있고, 관리자들은 직원들이 목표를 달성할 수 있도록 지속적인 피드백과 코칭을 해야 합니다.</p>
@@ -96,11 +97,11 @@
 					<ul>
 						<li>여러분의 목표는 조직/팀의 우선순위에 기반하지만 궁극적으로는 자신의 업무와 연관된 개인화된 목표여야 하며, 반복 가능하며 지속 가능한 목표여야 합니다.</li>
 						<li>각각의 목표는 구체적이고 측정 가능해야 하며 자신의 업무/스킬 입장에서 성취 가능한 수준이면서 한정된 기간 내 완료할 수 있어야 합니다.</li>
-					</ul>
-					<p>좀 더 자세한 안내가 필요하세요?</p>
+					</ul><br/>
+					<p>좀 더 자세한 안내가 필요하세요? 관련 링크로 이동합니다 ! </p>
 					<ul>
 						<li><a href="https://apps.na.collabserv.com/wikis/home?lang=en-us#!/wiki/W90186f2fd1ef_44f7_b772_29ad854480e0/page/Business%20Unit%20Guidance">Business Unit별 목표 설정 가이드</a></li>
-						<li>각각의 목표는 구체적이고 측정 가능해야 하며 자신의 업무/스킬 입장에서 성취 가능한 수준이면서 한정된 기간 내 완료할 수 있어야 합니다.</li>
+						<li><a href="http://learn.atlanta.ibm.com/la/topics/goal-management/">Leadership Academy - Goal Management 안내</a></li>
 					</ul>
 				</div>
 			</div>
@@ -108,7 +109,7 @@
 		</div>
 		
 		<!-- 오른쪽 페이지 -->
-		<div class="col-xs-3">
+		<div class="col-xs-2">
 		</div>
 	</div>
 	
@@ -161,6 +162,10 @@
 	        </div>
 	      </div>
 	    </div>
+	</div>
+	
+	<div class="btn-chat">
+		<button type="button" class="btn btn-primary btn-circle btn-xl" onclick="openNav()">ㅊ</button>
 	</div>	
 </body>
 <script>
@@ -199,5 +204,17 @@
 			});	
 		});
 	});	
+	
+	function openNav() {
+	    document.getElementById("mySidenav").style.width = "350px";
+	    $(".closebtn").show();
+	    $("#search").hide();
+	}
+
+	function closeNav() {
+	    document.getElementById("mySidenav").style.width = "0";
+	    $(".closebtn").hide();
+	    $("#search").show();
+	}
 </script> 
 </html>

@@ -138,7 +138,6 @@
 	</div>
 	
 	<input type="hidden" name="no" value="${result.no}">
-	<input type="hidden" name="id" value="<%=(String)session.getAttribute("member_id")%>">
 	
 	<!-- new post Modal -->
 	<div class="modal fade" id="newPostModal" role="dialog">
@@ -194,30 +193,31 @@
 </body>
 <script>
 	$( document ).ready(function() {
-	
+		
+		var memId = "<%=(String)session.getAttribute("member_id")%>";
+		
 		$("#btn_ban").on("click", function(){
 			
 			$("#newPostModal").modal();
 		});
 
 		$("#modalBtnSubmit").on("click", function(){
-		
+			$("#newPostModal").hide();
 			$.ajax({
 		        url : "/board/ban",
 		        type : 'POST',
 		        data : {
-		        	no : $("#no").val(),
-		        	reason : $("#reason :selected").val(),
-		        	id : $("#id").val()
+		        	no : 21,
+		        	reason : $("#reason :selected").text(),
+		        	id : memId
 		        },
 		        success: function(data){
 		        	if(data == "1"){
 			        	$("#alertModal").find(".modal-body").text("해당 게시글을 관리자에게 신고하였습니다.");
 						$("#alertModal").modal();
-						
-						$("#modalClose").on("click", function(){						
-							location.reload();
-						});
+						$('#alertModal').on('hidden.bs.modal', function () {
+							 location.reload();
+						})
 		        	}
 		        },
 		        error:function(request,status,error){

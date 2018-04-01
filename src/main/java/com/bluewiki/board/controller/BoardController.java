@@ -153,8 +153,8 @@ public class BoardController {
 
 	@RequestMapping("/ban")
 	@ResponseBody
-	public String banBoard(@RequestParam(required=false, defaultValue="0") int no, @RequestParam String reason, @RequestParam(required=false) String id) {
-		
+	public String banBoard(@RequestParam(required=false, defaultValue="0") int no, @RequestParam String reason, @RequestParam(required=true) String id) {
+				
 		boardService.banBoard(no, reason, id);
 		return "1";
 	}

@@ -10,8 +10,8 @@
 <script type="text/javascript">
 
 function changeSts(memId){
-	
-	if(!confirm("회원상태를 정상으로 복구하시겠습니까?")){
+	$("#newPostModal").modal();
+/* 	if(!confirm("회원상태를 정상으로 복구하시겠습니까?")){
 		return false;
 	}else{
 	
@@ -39,8 +39,40 @@ function changeSts(memId){
     	});
 		
 	}
-	
+	 */
 }
+	 
+	 $( document ).ready(function() {
+			
+		$("#modalBtnSubmit").on("click", function(){
+			$("#newPostModal").hide();
+			$.ajax({
+		        url : "/admin/changeSts",
+		        type : 'POST',
+		        data : {
+		        	memberId : $("#memId").val()
+		        },
+		        success: function(data){
+		        	if(data == "1"){
+			        	$("#alertModal").find(".modal-body").text("회원 상태를 정상적으로 변경하였습니다.");
+						$("#alertModal").modal();
+						
+						$('#alertModal').on('hidden.bs.modal', function () {
+							 location.reload();
+						})
+		        	}
+		        },
+		        error:function(request,status,error){
+		            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		            $("#alertModal").find(".modal-body").text("회원 상태를 정상적으로 변경하지 못했습니다.");
+					$("#alertModal").modal();
+		        }
+	    	});
+			
+		});
+	});
+
+
 
 </script>
 </head>
@@ -69,6 +101,7 @@ function changeSts(memId){
 							<td>${list.authority }</td>
 							<td><a href="#" onclick="changeSts('${list.memberId}')">정상으로 복구하기</a></td>
 						</tr>
+							<input type="hidden" id="memId" value="${list.memberId}">
 					</c:forEach>
 		</tbody>
 	</table>
@@ -95,6 +128,30 @@ function changeSts(memId){
 	        </div>
 	      </div>
 	    </div>
+	</div>
+
+	
+	<div class="modal fade" id="newPostModal" role="dialog">
+	  <div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <div class="form-group" style="font-size:15pt;">
+				<label for="newPostTitle">회원 상태 복구</label>
+			</div>
+	      </div>
+	      <div class="modal-body">
+			<div class="form-group" class="input-group mb-3">
+				회원 상태를 정상으로 복구하시겠습니까?
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	      	<button type="submit" class="btn btn-success" id="modalBtnSubmit">확인</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 	
 </body>

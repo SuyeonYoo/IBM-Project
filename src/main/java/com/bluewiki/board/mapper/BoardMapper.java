@@ -68,7 +68,7 @@ public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 			+"FROM INQ_MOD_BOARD INQ "
 				+"LEFT OUTER JOIN BOARD BRD "
 				+"ON INQ.BOARD_NO = BRD.NO "
-			+"WHERE BRD.STATE = '02' "
+			+"WHERE BRD.STATE = 2 "
 				+"AND INQ.STATE = '02' "
 			+"ORDER BY INQ.DATE ASC")
 	public List<InqBoardVo> getRptPostList();
@@ -78,5 +78,10 @@ public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 			+"SET STATE='01' "
 			+"WHERE NO = #{no}")
 	public void changeBrdSts(@Param("no") int brdNo);
+	
+	@Update("UPDATE BOARD "
+			+"SET STATE= 2 "
+			+"WHERE NO = #{no}")
+	public void banBrd(@Param("no") int no);
 	
 }

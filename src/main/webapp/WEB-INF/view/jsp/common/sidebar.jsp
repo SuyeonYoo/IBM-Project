@@ -7,9 +7,8 @@
 <link rel="stylesheet" type="text/css" href="/css/common/chatSidebar.css">
 <script type="text/javascript">
 	
-	var context = "";
-	
 	$(document).ready(function() {
+		
 		getFirstOutput();
 	});
 	
@@ -17,16 +16,12 @@
 	var callback = {	
 		getAnswerSuccess : function(data) {
 			
-			console.log(data.answer);
-			console.log(data.context);
-			
 			var appendHTML = "";
 			appendHTML += "<div class='answer'>";
 			appendHTML += data.answer;
 			appendHTML += "</div>";
 			
 			$("#chatMain").append(appendHTML);	
-			context = JSON.stringify(data.context);
 		}
 	}
 	
@@ -67,15 +62,11 @@
 	// 질문하고, 답변하기
 	function getNext(question) {
 		
-		console.log(context);
-		
 		$.ajax({
 	        url : "/chatbot/getNext",
 	        type : 'POST',
-	        dataType: 'json',
 	        data : {
-	        	question : question,		// 사용자의 질문
-	        	context : context			// watson context
+	        	question : question
 	        },
 	        success: function(data){
 	        	callback.getAnswerSuccess(data);

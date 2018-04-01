@@ -69,6 +69,12 @@ public class BoardController {
 	public ModelAndView selectMatchTitle(@PathVariable String title) throws Exception{
 		ModelAndView mainPageMv = new ModelAndView("/board/main");
 		JSONObject result = new JSONObject();
+		
+		if (title.equals("체크포인트")) {
+			ModelAndView checkpointPage = new ModelAndView("/board/main_checkpoint");
+			return checkpointPage;
+		}
+		
 		try {
 			mainPageMv.addObject("result", boardService.selectMatchTitle(title));
 			mainPageMv.addObject("indexList", boardService.selectIndexList(boardService.selectMatchTitle(title).getNo()));

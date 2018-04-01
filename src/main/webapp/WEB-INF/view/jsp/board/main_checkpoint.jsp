@@ -44,7 +44,7 @@
 	});	
 </script> 
 </head>
-<body style="font-family: 'nanumsquareB', sans-serif;">
+<body>
 	<!-- Navbar -->
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
 	

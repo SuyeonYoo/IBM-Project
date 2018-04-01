@@ -123,18 +123,17 @@ public class BoardController {
 	}
 	
 	/**
-	 * saveBoard
+	 * saveBoardFinish
 	 * @param 
+	 * @return 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	@PostMapping("/saveBoard")
-	@ResponseBody
-	public String saveBoard(HttpServletRequest httpServletRequest) throws Exception{
-	
+	@GetMapping("/saveFinish/{title}")
+	public ModelAndView saveFinish(@PathVariable String title) throws Exception{
+		ModelAndView finishPageMv = new ModelAndView("/board/saveFinish");
+		finishPageMv.addObject("title",title);
 		
-		
-		return "redirect:/create/title";
+		return finishPageMv;
 	}
 	
 	@RequestMapping("/changeSts")

@@ -41,9 +41,9 @@ public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 	public List<BoardIndexVo> selectIndexList(@Param("no") int no);
 	
 	@Insert("INSERT INTO BOARD"
-			+"(title, content_no, writer) "
+			+"(title, writer, reg_date, reg_time) "
 			+"VALUES"
-			+"(#{title}, #{content_no}, #{writer})")
+			+"(#{title}, #{writer}, convert(varchar(10), getdate(), 120), convert(varchar, getdate(), 108))")
 	public BoardVo insertBoard(BoardVo vo);
 	
 	@Insert("INSERT INTO BOARD_INDEX"

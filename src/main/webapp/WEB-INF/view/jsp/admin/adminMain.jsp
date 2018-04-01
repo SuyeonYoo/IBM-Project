@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 </script>
 </head>
-<body>
+<body style="font-family: 'nanumsquareB', sans-serif;">
 
 <!-- Navbar -->
 <jsp:include page="../layout/navbar.jsp"></jsp:include>

@@ -43,17 +43,17 @@
 	     </div>
 	
 	    <ul class="nav navbar-nav navbar-left">
-	    <li class="dropdown">
-	        <a class="nav-align dropdown-toggle" data-toggle="dropdown" href="#">
-	        <i class="fas fa-align-justify fa-lg grayscale cursor"></i>&nbsp;&nbsp;&nbsp;이용안내</a>
-	        <ul class="dropdown-menu">
-	          <li><a href="#">공지사항</a></li>
-	          <li><a href="#">문의게시판</a></li>
-	          <li><a href="#">신고게시판</a></li>
-	        </ul>
-	      </li>
-	 			<li id="chgList"><a class="nav-align cursor"><i class="fas fa-clock fa-lg grayscale cursor"></i>&nbsp;&nbsp;&nbsp;최근변경</a></li>
-	 			<li id="top15"><a class="nav-align cursor"><i class="far fa-heart fa-lg grayscale cursor"></i>&nbsp;&nbsp;&nbsp;Top15</a></li>
+		    <li class="dropdown">
+		        <a class="nav-align dropdown-toggle" data-toggle="dropdown" href="#">
+		        <i class="fas fa-align-justify fa-lg grayscale cursor"></i>&nbsp;&nbsp;&nbsp;이용안내</a>
+		        <ul class="dropdown-menu">
+		         <!--  <li><a href="#">공지사항</a></li>
+		          <li><a href="#">문의게시판</a></li> -->
+		          <li><a href="/admin/adminMain">신고게시판</a></li>
+		        </ul>
+		      </li>
+		 	<!-- <li id="chgList"><a class="nav-align cursor"><i class="fas fa-clock fa-lg grayscale cursor"></i>&nbsp;&nbsp;&nbsp;최근변경</a></li>
+		 	<li id="top15"><a class="nav-align cursor"><i class="far fa-heart fa-lg grayscale cursor"></i>&nbsp;&nbsp;&nbsp;Top15</a></li> -->
 	    </ul>
 	    
 	    <ul class="nav navbar-nav navbar-right" style="padding-top:10px;">

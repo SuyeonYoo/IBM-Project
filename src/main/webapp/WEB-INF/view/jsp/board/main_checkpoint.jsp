@@ -162,7 +162,7 @@
 			</div>
 	      </div>
 	      <div class="modal-footer">
-	      	<button type="submit" class="btn btn-success" id="modalBtnSubmit">확인</button>
+	      	<button type="submit" class="btn btn-info" id="modalBtnSubmit">확인</button>
 	        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 	      </div>
 	    </div>
@@ -193,8 +193,9 @@
 </body>
 <script>
 	$( document ).ready(function() {
-		
+
 		var memId = "<%=(String)session.getAttribute("member_id")%>";
+		$(".closebtn").hide();
 		
 		$("#btn_ban").on("click", function(){
 			

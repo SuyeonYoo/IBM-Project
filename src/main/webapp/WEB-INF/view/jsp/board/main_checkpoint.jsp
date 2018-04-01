@@ -46,16 +46,21 @@
 			<div class="row">
 				<div class="col-xs-6" style="border:1px solid #ccc;">
 					<p style="padding-top: 10px;">1. 체크포인트가 뭐예요?</p>
-					<p style="padding-top: 10px;">2. 체크포인트 작성은 어떤 언어로 해야하나요?</p>
-					<p style="padding-top: 10px;">3. 체크포인트 예시문장이 있나요?</p>
-					<p style="padding-top: 10px;">4. 2018 체크포인트 안내메일</p>
+					<p style="padding-top: 10px;">2. 체크포인트 팁이에요</p>
+					<p style="padding-top: 9px;">- 2.1 체크포인트 작성은 어떤 언어로 해야하나요?</p>
+					<p style="padding-top: 9px;">- 2.2 체크포인트 예시문장이 있나요?</p>
+					<p style="padding-top: 10px;">3. 체크 포인트 링크에요</p>
+					<p style="padding-top: 9px;">- 3.1 꼭 참고해봐요!</p>
+					<p style="padding-top: 9px;">- 3.2 재밌을거에요!</p>
+					<p style="padding-top: 10px;">4. 추가로 볼만한 내용이에요</p>
+					<p style="padding-top: 9px;">- 4.1 2018 체크포인트 안내메일</p>
 				</div>
 			</div>
 			
 			<!-- 컨텐츠 --> 
-			<div class="row" id="realCnts" style="padding-top: 10px; padding-bottom: 10px;">
-				<div class="col-xs-12" style="padding-top: 20px;">
-					<h3 style="border-bottom: 1px solid #ccc;">1. 체크포인트가 뭐예요?</h3>
+			<div class="row" id="realCnts" style="padding-top: 10px; padding-bottom: 20px;">
+				<div class="col-xs-12" style="padding-top: 20px; padding-bottom: 20px;">
+					<h2 style="border-bottom: 1px solid #ccc;">1. 체크포인트가 뭐예요?</h2>
 					<p><blockquote><mark style="font-size: 14pt;">Checkpoint 계절이 돌아왔네요.</mark><br/>
 						이미 한 번 해보신 분들도 있을텐데요, 처음 해보시는 분들도 당황하지 마시고 아래 가이드에 따라 차근차근 해보시기 바랍니다.<br/><br/>
 						<footer>GBS 김덕중 실장님</footer>
@@ -65,14 +70,15 @@
 					</p>
 				</div>
 				
-				<div class="col-xs-12" style="padding-top: 10px; padding-bottom: 10px;">
-					<h3 style="border-bottom: 1px solid #ccc;">2. 체크포인트 작성은 어떤 언어로 해야하나요?</h3>
+				<div class="col-xs-12" style="padding-top: 20px; padding-bottom: 20px;">
+					<h2 style="border-bottom: 1px solid #ccc;">2. 체크포인트 팁이에요</h2>
+					<h3 style="border-bottom: 1px solid #ccc;">2.1 체크포인트 작성은 어떤 언어로 해야하나요?</h3>
 					<p><mark style="font-size: 14pt;">영어</mark>로 작성하셔야 되요<br/><br/></p>
 					<img src="/img/englishOnly.jpg"></img>
 				</div>
 				
-				<div class="col-xs-12" style="padding-top: 10px; padding-bottom: 10px;">
-					<h3 style="border-bottom: 1px solid #ccc;">3. 체크포인트 예시문장이 있나요?</h3>
+				<div class="col-xs-12" style="padding-top: 20px; padding-bottom: 20px;">
+					<h3 style="border-bottom: 1px solid #ccc;">2.2 체크포인트 예시문장이 있나요?</h3>
 					<p class="bg-info" style="text-align:center; font-size: 12pt;">개발자</p>
 					<ul>
 						<li>Progress my capability from ‘entry’ to ‘foundation’ level in JAVA Application Development skills by 6/1/18</li>
@@ -88,8 +94,26 @@
 					</ul>
 				</div>
 				
+				<div class="col-xs-12" style="padding-top: 20px; padding-bottom: 20px;">
+					<h2 style="border-bottom: 1px solid #ccc;">3. 체크 포인트 링크에요</h2>
+					<h3 style="border-bottom: 1px solid #ccc;">3.1 꼭 참고해봐요!</h3>
+					<ul>
+						<li><a href="https://apps.na.collabserv.com/wikis/home?lang=en-us#!/wiki/W90186f2fd1ef_44f7_b772_29ad854480e0/page/GBS%20-%20Goal%20Setting%20Guidance%20%26%20Examples">GBS Checkpoint examples link: Early Career, Mid level, Senior level별 examples 제공해요</a></li>
+						<li><a href="http://checkpoint.w3cloud.ibm.com/">Check Point 기본 정보</a></li>
+						<li><a href="https://apps.na.collabserv.com/wikis/home?lang=en-us#!/wiki/W90186f2fd1ef_44f7_b772_29ad854480e0/page/Checkpoint%20Community">Check Point Community</a></li>
+						<li><a href="https://w3-01.ibm.com/hr/web/performance/checkpoint.html">You and IBM Korea - All Topics Library: Check Point</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-xs-12" style="padding-top: 20px; padding-bottom: 20px;">
+					<h3 style="border-bottom: 1px solid #ccc;">3.2 재밌을거에요!</h3>
+					<p><a href="https://ace.w3bmix.ibm.com/#/app/dashboard">Appreciation Coaching Evaluation: IBMer에게 Checkpoint에 관한 코멘트를 보낼 수 있어요</a></p>
+					<img src="/img/referImage.png"></img>
+				</div>
+				
 				<div class="col-xs-12" style="padding-top: 10px; padding-bottom: 10px;">
-					<h3 style="border-bottom: 1px solid #ccc;">4. 2018 체크포인트 안내메일</h3>
+					<h2 style="border-bottom: 1px solid #ccc;">4. 추가로 볼만한 내용이에요</h2>
+					<h3 style="border-bottom: 1px solid #ccc;">4.1 2018 체크포인트 안내메일</h3>
 					<p>IBM Checkpoint | 2018년 목표를 3/31일까지 입력하십시요.</p>
 					<p>Checkpoint는 IBM의 성과관리 체계에서 조직과 팀의 우선순위 및 목표에 기반하는 개인화된 목표를 Checkpoint Tracker를 통해 설정한 후, 목표의 진척 상황을 지속적/정기적으로 업데이트 할 수 있고, 관리자들은 직원들이 목표를 달성할 수 있도록 지속적인 피드백과 코칭을 해야 합니다.</p>
 					<br/>

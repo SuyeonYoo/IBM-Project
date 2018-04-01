@@ -38,7 +38,7 @@
 	
 	   <div class="container-fluid text-right">
 	     <div class="nav navbar-nav navbar-left">
-	       <a href="/board/main"><img src="/img/mainLogo2.PNG" height="50" class="d-inline-block align-top cursor" alt=""></a>
+	       <a href="/common/searchPage"><img src="/img/mainLogo2.PNG" height="50" class="d-inline-block align-top cursor" alt=""></a>
 	       <!-- <a class="navbar-brand nav-padding logo-text cursor" href="#">Blue<b>WiKi</b></a> -->
 	     </div>
 	

@@ -72,9 +72,8 @@ public class BoardController {
 		ModelAndView mainPageMv = new ModelAndView("/board/main");
 		JSONObject result = new JSONObject();
 		
-		if (title.equals("체크포인트")) {
-			ModelAndView checkpointPage = new ModelAndView("/board/main_checkpoint");
-			return checkpointPage;
+		if("체크포인트".equals(title)) {
+			return new ModelAndView("/board/main_checkpoint");
 		}
 		
 		try {

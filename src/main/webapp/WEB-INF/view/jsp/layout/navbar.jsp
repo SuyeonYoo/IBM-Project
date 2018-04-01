@@ -47,8 +47,8 @@
 		        <a class="nav-align dropdown-toggle" data-toggle="dropdown" href="#">
 		        <i class="fas fa-align-justify fa-lg grayscale cursor"></i>&nbsp;&nbsp;&nbsp;이용안내</a>
 		        <ul class="dropdown-menu">
-		          <li><a href="#">공지사항</a></li>
-		          <li><a href="#">문의게시판</a></li>
+		         <!--  <li><a href="#">공지사항</a></li>
+		          <li><a href="#">문의게시판</a></li> -->
 		          <li><a href="/admin/adminMain">신고게시판</a></li>
 		        </ul>
 		      </li>

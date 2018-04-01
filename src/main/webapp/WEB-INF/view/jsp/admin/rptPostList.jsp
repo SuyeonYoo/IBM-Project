@@ -51,36 +51,36 @@ function changeSts(brdNo){
 
 	
 <div class="container">
-
-	<h1>신고게시물목록</h1><br>
+<br>
+	<p style="font-size:25px;font-weight:bold;font-color:#000099">신고게시글 목록</p><br>
 	<c:choose>
 		<c:when test="${not empty requestScope.result }">
+			<table class="table table-hover">
+		    <thead>
+		      <tr>
+		      	<th>게시글No</th>
+		        <th>게시글 제목</th>
+		        <th>신고자</th>
+		        <th>신고사유</th>
+		        <th>신고시각</th>
+		        <th>복구</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+			<tr>
+			
 			<c:forEach items="${requestScope.result }" var ="list">
-				<div style="border-style: ridge; width:260px; height:150px;">
-				게시글 제목 : 
-				<a href="#" onclick="/board/retrieveBrdDetail?brdNo=${list.brdNo}">${list.title }</a>
-				<br/>
-				요청자 : ${list.reqMemId }
-				<br>
-				신고내용 : ${list.inqContent }
-				<br>
-				신고시각 : ${list.inqDate }&nbsp;&nbsp;${list.inqTime }
-				<br>
-			<%-- 	상태 : 
-				<c:if test="${list.inqSts eq 1}">
-					완료
-				</c:if>
-				<c:if test="${list.inqSts eq 2}">
-					대기
-				</c:if> --%>
-				<br>
-				게시글no : ${list.brdNo }
-				<br/>
-				<a href="#" onclick="changeSts('${list.brdNo }')">정상으로 복구하기</a>
-				<br>
-			</div>
-			<br>
+				<td>${list.brdNo }</td>
+				<td><a href="#" onclick="/board/retrieveBrdDetail?brdNo=${list.brdNo}">${list.title }</a></td>
+				<td>${list.reqMemId }</td>
+				<td>${list.inqContent }</td>
+				<td>${list.inqDate }&nbsp;&nbsp;${list.inqTime }</td>
+				<td><a href="#" onclick="changeSts('${list.brdNo }')">정상으로 복구하기</a></td>
+				
+			<tr>
 			</c:forEach>
+			</tbody>
+			</table>
 		</c:when>
 		<c:otherwise>
 			신고된 게시글이 없습니다.	

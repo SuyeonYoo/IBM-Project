@@ -29,6 +29,9 @@
 
 <script>
 $( document ).ready(function() {
+	
+	$(".closebtn").hide();
+	
 	/* 검색 버튼 클릭 시*/
 	$("#btnSearch").click(function(){
 		var title = $("[name=title]").val();

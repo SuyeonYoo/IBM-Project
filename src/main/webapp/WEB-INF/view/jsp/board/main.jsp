@@ -81,14 +81,14 @@
 					  <label for="newPostContents">신고 사유&nbsp;&nbsp;</label>
 					  <select id="reason" name="reason">
 					  	<option style="display:none">신고 사유를 선택해주세요.</option>
-					  	<option value="1">신고사유1</option>
-					  	<option value="2">신고사유2</option>
-					  	<option value="3">신고사유3</option>						  
+					  	<option value="1">음란물, 부적절한 컨텐츠</option>
+					  	<option value="2">타인 비방 컨텐츠</option>
+					  	<option value="3">금전적 손해를 불러일으키는 컨텐츠</option>						  
 					  </select>
 					</div>
 	      </div>
 	      <div class="modal-footer">
-	      	<button type="submit" class="btn btn-success" id="modalBtnSubmit">확인</button>
+	      	<button type="submit" class="btn btn-info" id="modalBtnSubmit">확인</button>
 	        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 	      </div>
 	    </div>
@@ -119,7 +119,9 @@
 </body>
 <script>
 	$( document ).ready(function() {
-	
+		
+		$(".closebtn").hide();
+		
 		$("#btn_ban").on("click", function(){
 			
 			$("#newPostModal").modal();

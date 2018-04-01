@@ -57,7 +57,8 @@
 	height: 94%;
 	font-family: 'nanumsquareR', sans-serif;
 	color: #ffffff;
-    overflow: auto; 
+    overflow-y: auto;
+    overflow-x: hidden; 
     margin-bottom: 10px;
 }
 

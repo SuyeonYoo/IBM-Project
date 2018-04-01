@@ -2,6 +2,8 @@ package com.bluewiki.board.controller;
 
 import java.net.URLEncoder;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -119,6 +121,21 @@ public class BoardController {
 		
 		
 		return createPageMv;
+	}
+	
+	/**
+	 * saveBoard
+	 * @param 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@PostMapping("/saveBoard")
+	@ResponseBody
+	public String saveBoard(HttpServletRequest httpServletRequest) throws Exception{
+	
+		
+		
+		return "redirect:/create/title";
 	}
 	
 	@RequestMapping("/changeSts")

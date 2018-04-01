@@ -115,6 +115,8 @@ public class CommonController {
 		String passWord = (String)paramMap.get("pwd");
 		String memberId = (String)paramMap.get("memberId");
 		
+		System.out.println("ddddddddddddd"+passWord+"dddddddddddddd"+memberId);
+		
 		Pattern wordPattern = Pattern.compile("([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])");
 		Matcher wordMatcher = wordPattern.matcher(passWord);
 		

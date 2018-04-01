@@ -2,6 +2,8 @@ package com.bluewiki.board.controller;
 
 import java.net.URLEncoder;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -118,6 +120,20 @@ public class BoardController {
 		
 		
 		return createPageMv;
+	}
+	
+	/**
+	 * saveBoardFinish
+	 * @param 
+	 * @return 
+	 * @return
+	 */
+	@GetMapping("/saveFinish/{title}")
+	public ModelAndView saveFinish(@PathVariable String title) throws Exception{
+		ModelAndView finishPageMv = new ModelAndView("/board/saveFinish");
+		finishPageMv.addObject("title",title);
+		
+		return finishPageMv;
 	}
 	
 	@RequestMapping("/changeSts")

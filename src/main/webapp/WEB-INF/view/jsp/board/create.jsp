@@ -11,60 +11,62 @@
 	<!-- Navbar -->
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
 	
-	<div class="container">
-		<div style="font-size:30px;">
-				<i class='fas fa-book'></i><b> ${title}</b>
-			<br>
-			<div class="col-xs-12">
-				<div class='div-topBorder'></div>
-			</div>
-			<!-- 목차 만들기 -->
-			<div class="col-xs-7">
-				<span class="text-left" style="color:#565656;">INDEX</span>
-				<div class="text-right" id="index" style="margin-top:0px">
-				<span id="indexTitle" style="font-size:17px">목차를 생성해주세요&nbsp; </span>
-				<button type="button" class="btn btn-default btn-xs" id="btnIndex"><i class="fas fa-list-ol grayscale"></i></button>
-				<div id="indexGroup" class="btn-group" style="display:none;">
-					<button type="button" class="btn btn-default btn-xs" id="btnPlus"><i class="fas fa-plus grayscale"></i></button>
-					<button type="button" class="btn btn-default btn-xs" id="btnMinus" disabled="true"><i class="fas fa-minus grayscale"></i></button>
+	<%-- <form method="post" id="CreateForm" action="/create/+ ${title}"> --%>
+		<div class="container">
+			<div style="font-size:30px;">
+					<i class='fas fa-book grayscale'></i><b> ${title}</b>
+				<br>
+				<div class="col-xs-12">
+					<div class='div-topBorder'></div>
 				</div>
-				
-				<%-- <button type="button" class="btn btn-default" id="btnIndex" onclick="create('${title}');"><i class="fas fa-pencil-alt"></i></button> --%>
-				<div id="indexDiv" class="col-xs-12 form-control" style="height:auto; min-height: 40px;"></div>
-				</div>
-			</div>
-			
-			<!-- 소개 부분 만들기 -->
-			<div class="col-xs-5">
-				
-				<div class="define" style="margin:0px; margin-top:15px;">
-					<div class="grayscale cursor" id="defineDiv" style="margin-top:14px; text-align:center">
-						<span id="defineSpan">정의를 입력해주세요</span>
-						<input type="text" id="defineText" class='defineText hide'/>
+				<!-- 목차 만들기 -->
+				<div class="col-xs-7">
+					<span class="text-left" style="color:#000000;">목차</span>
+					<div class="text-right" id="index" style="margin-top:0px">
+					<span id="indexTitle" style="font-size:17px">목차를 생성해주세요&nbsp; </span>
+					<button type="button" class="btn btn-default btn-xs" id="btnIndex"><i class="fas fa-list-ol grayscale"></i></button>
+					<div id="indexGroup" class="btn-group" style="display:none;">
+						<button type="button" class="btn btn-default btn-xs" id="btnPlus"><i class="fas fa-plus grayscale"></i></button>
+						<button type="button" class="btn btn-default btn-xs" id="btnMinus" disabled="true"><i class="fas fa-minus grayscale"></i></button>
+					</div>
+					
+					<%-- <button type="button" class="btn btn-default" id="btnIndex" onclick="create('${title}');"><i class="fas fa-pencil-alt"></i></button> --%>
+					<div id="indexDiv" class="col-xs-12 form-control" style="height:auto; min-height: 40px;"></div>
 					</div>
 				</div>
-				<div class="fileDiv">
-					<input type="file" name="imageUpload" id="imageUpload" class="hide"/> 
-					<label for="imageUpload" id="labelFile" class="btn-file cursor"><i id="imgPlus" class="fas fa-plus"></i>
-						<img src="" id="imagePreview" alt="" width="200px"/>
-					</label>
-					
-				</div>
-			</div>
 				
-			<!-- 본문 부분 만들기 -->
-			<div class="col-xs-12">
-				<div class="row content-div" style="margin-bottom:20px"> 본문 </div>
-				<div id="contentDiv">
+				<!-- 소개 부분 만들기 -->
+				<div class="col-xs-5">
+					
+					<div class="define" style="margin:0px; margin-top:15px;">
+						<div class="grayscale cursor" id="defineDiv" style="margin-top:14px; text-align:center">
+							<span id="defineSpan">정의를 입력해주세요</span>
+							<input type="text" id="defineText" class='defineText hide'/>
+						</div>
+					</div>
+					<div class="fileDiv">
+						<input type="file" name="imageUpload" id="imageUpload" class="hide"/> 
+						<label for="imageUpload" id="labelFile" class="btn-file cursor"><i id="imgPlus" class="fas fa-plus"></i>
+							<img src="" id="imagePreview" alt="" width="200px"/>
+						</label>
+						
+					</div>
+				</div>
+					
+				<!-- 본문 부분 만들기 -->
+				<div class="col-xs-12">
+					<div class="row content-div" style="margin-bottom:20px"> 본문 </div>
+					<div id="contentDiv">
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	<!-- </form> -->
 	
 	<br/>
 	
 	<div style="position: fixed; align-items: center; bottom: 10px; right: 10px;">
-		<button class="btn btn-info" style="width: 80px;" id="btnSignup">등록</button>
+		<button class="btn btn-info" style="width: 80px;" id="btnBoardCrt" onclick="saveFinish('${title}')">등록</button>
 		<button class="btn" style="width: 80px;" id="btnCancel" onclick="moveSearchMain();">취소</button>
 	</div>
 </body>
@@ -116,92 +118,125 @@ $( document ).ready(function() {
 		$("#btnIndex").hide();
 		$("#indexGroup").show();
 
-	 $("#btnPlus").click(function(){
-		 $("#indexDiv").append("<div id='indexDiv"+numbering+"' class='text-left'><span id='indexSpan"+numbering+"'>"+numbering+
-				 ". </span><input type='text' id='indexText"+numbering+"' class='index-input'/></div>");
-		 $.when($('#contentDiv').append("<div id='contentIndex"+numbering+"' class='row'><span id='indexContentSpan"+numbering+"'>"+numbering+
-				 ". </span><input type='text' id='indexContentText"+numbering+"' class='index-input margin-bottom' readonly/>"+
-				 "<textarea id='contentTxtarea"+numbering+"' class='form-control main-content'></textarea></div>")).then(function(){
-					 nhn.husky.EZCreator.createInIFrame({
-					     oAppRef: oEditors,
-					     elPlaceHolder: "contentTxtarea"+(numbering-1),
-					     sSkinURI: "/lib/smarteditor2/demo/SmartEditor2Skin.html",
-					     fCreator: "createSEditor2"
-					 });
-			});
-
-		 //autosize($("#contentTxtarea"+numbering));
-		 numbering = numbering+1;
-		 
-		
-		 
-			$(".index-input").focus(function() {
-				crtInputId = $(this).parent("div").attr("id");
-				$("#btnMinus").attr("disabled",false);
-			});
+		 $("#btnPlus").click(function(){
+			 $("#indexDiv").append("<div id='indexDiv"+numbering+"' class='text-left'><span id='indexSpan"+numbering+"'>"+numbering+
+					 ". </span><input type='text' id='indexText"+numbering+"' class='index-input'/></div>");
+			 $.when($('#contentDiv').append("<div id='contentIndex"+numbering+"' class='row'><span id='indexContentSpan"+numbering+"'>"+numbering+
+					 ". </span><input type='text' id='indexContentText"+numbering+"' class='index-input margin-bottom' readonly/>"+
+					 "<textarea id='contentTxtarea"+numbering+"' class='form-control main-content'></textarea></div>")).then(function(){
+						 nhn.husky.EZCreator.createInIFrame({
+						     oAppRef: oEditors,
+						     elPlaceHolder: "contentTxtarea"+(numbering-1),
+						     sSkinURI: "/lib/smarteditor2/demo/SmartEditor2Skin.html",
+						     fCreator: "createSEditor2"
+						 });
+				});
+	
+			 //autosize($("#contentTxtarea"+numbering));
+			 numbering = numbering+1;
+			 
 			
-			$("#indexText"+(numbering-1)).focus();
-			/* $(".index-input").focusout(function() {
-					$("#btnMinus").attr("disabled",true);
-				}); */
-				
-			 $(".index-input").keyup(function() {
-				 	var curNumbering = crtInputId.substring(8);
-				 	var indexTitle = $("#indexText"+curNumbering).val();
-				 	console.log("순서 : "+curNumbering+"목차 제목 : " + indexTitle);
-					$('#indexContentText'+curNumbering).val(indexTitle);
+			 
+				$(".index-input").focus(function() {
+					crtInputId = $(this).parent("div").attr("id");
+					$("#btnMinus").attr("disabled",false);
 				});
 				
-	 });
-	 
-	
-	 $("#btnMinus").click(function(){
-		 var curNumbering = crtInputId.substring(8);
+				$("#indexText"+(numbering-1)).focus();
+				/* $(".index-input").focusout(function() {
+						$("#btnMinus").attr("disabled",true);
+					}); */
+					
+				 $(".index-input").keyup(function() {
+					 	var curNumbering = crtInputId.substring(8);
+					 	var indexTitle = $("#indexText"+curNumbering).val();
+					 	console.log("순서 : "+curNumbering+"목차 제목 : " + indexTitle);
+						$('#indexContentText'+curNumbering).val(indexTitle);
+					});
+					
+		 });
 		 
-			$("#"+crtInputId).remove();
-			$("#contentIndex"+curNumbering).remove();
-			
-			if(numbering != 1)
-				$("#indexText"+(curNumbering-1)).focus();				
-			else
-				$("#btnMinus").attr("disabled",true);
-			
-			if(curNumbering == (numbering-1)){
-				numbering = numbering-1;
-			}
-			else{
-				for(var i = 1; i <= numbering; i++){
-					if(i > curNumbering){
-						$("#indexDiv"+i).attr("id","indexDiv"+(i-1));
-						$("#indexSpan"+i).attr("id","indexSpan"+(i-1));
-						$("#indexText"+i).attr("id","indexText"+(i-1));
-						
-						$("#contentIndex"+i).attr("id","contentIndex"+(i-1));
-						$("#indexContentSpan"+i).attr("id","indexContentSpan"+(i-1));
-						$("#indexContentText"+i).attr("id","indexContentText"+(i-1));
-						
-						$("#indexSpan"+(i-1)).text((i-1)+". ");
-						$("#indexContentSpan"+(i-1)).text((i-1)+". ");
-					}
-				}
-				numbering = numbering - 1;
-			}
-	 });
-		 
-	 $("#btnLeft").click(function(){
-		 $("#indexDiv"+numbering)
-	 });
-	 
-	 $("#btnRight").click(function(){
-		 alert(1);
-	 });
-	 
 		
-	});	
+		 $("#btnMinus").click(function(){
+			 var curNumbering = crtInputId.substring(8);
+			 
+				$("#"+crtInputId).remove();
+				$("#contentIndex"+curNumbering).remove();
+				
+				if(numbering != 1)
+					$("#indexText"+(curNumbering-1)).focus();				
+				else
+					$("#btnMinus").attr("disabled",true);
+				
+				if(curNumbering == (numbering-1)){
+					numbering = numbering-1;
+				}
+				else{
+					for(var i = 1; i <= numbering; i++){
+						if(i > curNumbering){
+							$("#indexDiv"+i).attr("id","indexDiv"+(i-1));
+							$("#indexSpan"+i).attr("id","indexSpan"+(i-1));
+							$("#indexText"+i).attr("id","indexText"+(i-1));
+							
+							$("#contentIndex"+i).attr("id","contentIndex"+(i-1));
+							$("#indexContentSpan"+i).attr("id","indexContentSpan"+(i-1));
+							$("#indexContentText"+i).attr("id","indexContentText"+(i-1));
+							
+							$("#indexSpan"+(i-1)).text((i-1)+". ");
+							$("#indexContentSpan"+(i-1)).text((i-1)+". ");
+						}
+					}
+					numbering = numbering - 1;
+				}
+		 });
+	});
+
+/* 	$("#btnBoardCrt").click(function(){
+		location.href="/board/saveFinish/"+${title};
+	
+	var indexNum = [];
+	var indexTitle = [];
+	var define = $("defineSpan").text();
+	//목차
+	for(var i=1; i <numbering; i++){
+		indexNum[i] = $("#indexSpan"+i).text();
+		indexTitle[i] = $("#indexText"+i).val();
+	};
+	
+	$.ajax({
+		type : 'POST',
+		url : 'saveBoard',
+		data : data,
+		success:function(result){
+  	
+      	if(result.resultList.length > 0)
+      		ArrResult.length = 0;
+  	
+		for (var i=0; i < result.resultList.length; i++){
+			ArrResult.push(result.resultList[i].title);	
+		}
+		console.log(ArrResult);
+		}
+	});
+	
+ }); */
+	
 });
+/* 
+function saveContent(elClickedObj){
+	var content = [];
+	for (var i=0; i < numbering; i++){
+		oEditors.getById["contentTxtarea"+i].exec("UPDATE+CONTENTS_FIELD",[]);
+	}
+}  */
+
+function saveFinish(title){
+	location.href="/board/saveFinish/"+title;
+}
 
 function moveSearchMain() {
 	location.href="/common/searchPage";
 }
+
 </script>
 </html>

@@ -24,7 +24,6 @@ public List<BoardVo> selectBaordByTitle(@Param("title") String title);
 	
 	@Select("SELECT no, title, state, "
 			+ "DATE_FORMAT(reg_date, '%Y-%m-%d') reg_date, "
-			+ "DATE_FORMAT(reg_time, '%H:%i:%s') reg_time, "
 			+ "sec_state, writer, cnt_like, third_cate_id "
 	+ "FROM BOARD "
 	+ "WHERE title = #{title}")

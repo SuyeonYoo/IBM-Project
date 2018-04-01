@@ -26,9 +26,9 @@ function changeSts(memId){
 		        	$("#alertModal").find(".modal-body").text("회원 상태를 정상적으로 변경하였습니다.");
 					$("#alertModal").modal();
 					
-					$("#modalClose").on("click", function(){						
-						location.reload();
-					});
+					$("#modalClose").on("click", function(){	
+						window.location.reload(true);
+					}); 
 	        	}
 	        },
 	        error:function(request,status,error){
@@ -50,25 +50,33 @@ function changeSts(memId){
 <jsp:include page="../layout/navbar.jsp"></jsp:include>
 
 <div class="container">
-	<h1>신고회원목록</h1><br>
-
-	<c:choose>
-		<c:when test="${not empty requestScope.result }">
-			<c:forEach items="${requestScope.result }" var ="list">
-				아이디 : ${list.memberId }
-				<br>
-				권한 : ${list.authority }
-				<br>
-				<a href="#" onclick="changeSts('${list.memberId}')">정상으로 복구하기</a>
-				
-				<br>
-			</c:forEach>
-		</c:when>
-		<c:otherwise>
-			신고된 회원이 없습니다.	
-		</c:otherwise>
-	</c:choose>
-	
+<br>
+	<p style="font-size:25px;font-weight:bold;font-color:#000099">신고회원 목록</p><br>
+			<c:choose>
+				<c:when test="${not empty requestScope.result }">
+	<table class="table table-hover">
+	    <thead>
+	      <tr>
+	        <th>회원ID</th>
+	        <th>권한</th>
+	        <th>복구</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+					<c:forEach items="${requestScope.result }" var ="list">
+						<tr>
+							<td>${list.memberId }</td>
+							<td>${list.authority }</td>
+							<td><a href="#" onclick="changeSts('${list.memberId}')">정상으로 복구하기</a></td>
+						</tr>
+					</c:forEach>
+		</tbody>
+	</table>
+				</c:when>
+				<c:otherwise>
+					신고된 회원이 없습니다.	
+				</c:otherwise>
+			</c:choose>																						
 	</div>
 	
 	<!-- Modal -->
@@ -83,7 +91,7 @@ function changeSts(memId){
 	          <p name="modalCnts">This is a small modal.</p>
 	        </div>
 	        <div class="modal-footer">
-	          <button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">확인</button>
 	        </div>
 	      </div>
 	    </div>

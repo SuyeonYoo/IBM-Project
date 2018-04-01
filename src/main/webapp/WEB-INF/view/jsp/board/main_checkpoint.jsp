@@ -123,20 +123,20 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <div class="form-group">
-				<label for="newPostTitle">게시글 신고하기</label>
+	        <div class="form-group" style="font-size:15pt;">
+				<label for="newPostTitle">게시글 신고</label>
 			</div>
 	      </div>
 	      <div class="modal-body">
-					<div class="form-group">
-					  <label for="newPostContents">신고 사유&nbsp;&nbsp;</label>
-					  <select id="reason" name="reason">
-					  	<option style="display:none">신고 사유를 선택해주세요.</option>
-					  	<option value="1">신고사유1</option>
-					  	<option value="2">신고사유2</option>
-					  	<option value="3">신고사유3</option>						  
-					  </select>
-					</div>
+			<div class="form-group" class="input-group mb-3">
+				<!-- 	  <label for="newPostContents">신고 사유&nbsp;&nbsp;</label> -->
+				<select id="reason" name="reason" class="form-control">
+					<option style="display:none">신고 사유를 선택해주세요.</option>
+					<option value="1">부적절한 콘텐츠를 포함하고 있어요.</option>
+					<option value="2">사실과 다른 콘텐츠를 포함하고 있어요.</option>
+					<option value="3">블루팁스와 어울리지 않는 주제의 콘텐츠예요.</option>						  
+				</select>
+			</div>
 	      </div>
 	      <div class="modal-footer">
 	      	<button type="submit" class="btn btn-success" id="modalBtnSubmit">확인</button>

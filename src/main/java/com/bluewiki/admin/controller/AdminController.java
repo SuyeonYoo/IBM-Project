@@ -39,6 +39,17 @@ public class AdminController {
 		List<MemberVo> result = new ArrayList<>();
 		result = memberService.getRptMember();
 		
+		for(MemberVo mem : result) {
+			if(mem.getAuthority().equals("01")) {
+				mem.setAuthority("회원");
+			}
+			else{
+				mem.setAuthority("관리자");
+			}
+			
+		}
+		
+		
 		map.addAttribute("result", result);
 		
 		return "/admin/rptMemberList";

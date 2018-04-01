@@ -20,12 +20,11 @@ $(document).ready(function(){
 <!-- Navbar -->
 <jsp:include page="../layout/navbar.jsp"></jsp:include>
 
-<div class="container">
-	<input type="button" value="회원신고목록" onClick="location.href='/admin/rptMember'">
-	<input type="button" value="게시글신고목록" onClick="location.href='/admin/rptPost'">
-	<input type="button" value="관리자관리" onClick="location.href='/admin/mngAdmin'">
+<div class="container" align="center"><br><br><br><br><br><br>
+	<input type="button" class="btn btn-outline-secondary" style="width:240px;height:270px;font-size:20px;font-weight: bold;font-color:#000066" value="신고회원 목록" onClick="location.href='/admin/rptMember'">
+	<input type="button" class="btn btn-outline-secondary" style="width:240px;height:270px;font-size:20px;font-weight: bold;font-color:#000066" value="신고게시글 목록" onClick="location.href='/admin/rptPost'">
+	<!-- <input type="button" value="관리자관리" onClick="location.href='/admin/mngAdmin'"> -->
 </div>
-	
 
 </body>
 </html>

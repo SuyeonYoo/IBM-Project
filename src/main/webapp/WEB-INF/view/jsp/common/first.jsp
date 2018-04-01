@@ -23,7 +23,7 @@
 					<img class="align-bottom logoImg" src="../img/mainLogo.png"> 
 				</div>
 		    	<hr>
-		    	<p>즐거운 지식공유 플랫폼</p>
+		    	<p>즐거운 공유 플랫폼</p>
 		    	<a class="btn btn-default btn-lg" onclick="loadLogin()">시작하기</a>
 			</div>
 	</div>

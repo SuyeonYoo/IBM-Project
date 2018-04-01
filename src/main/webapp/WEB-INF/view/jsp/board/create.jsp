@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/css/fileUpload.css">
 <title>블루팁스_create</title>
 </head>
-<body>
+<body style="font-family: 'nanumsquareB', sans-serif;">
 	<!-- Navbar -->
 	<jsp:include page="../layout/navbar.jsp"></jsp:include>
 	
@@ -53,14 +52,20 @@
 				</div>
 			</div>
 				
-				<!-- 본문 부분 만들기 -->
-				<div class="col-xs-12">
-					<div class="row content-div" style="margin-bottom:6px"> 본문 </div>
-					<div id="contentDiv">
-					</div>
+			<!-- 본문 부분 만들기 -->
+			<div class="col-xs-12">
+				<div class="row content-div" style="margin-bottom:20px"> 본문 </div>
+				<div id="contentDiv">
 				</div>
-				
+			</div>
 		</div>
+	</div>
+	
+	<br/>
+	
+	<div style="position: fixed; align-items: center; bottom: 10px; right: 10px;">
+		<button class="btn btn-info" style="width: 80px;" id="btnSignup">등록</button>
+		<button class="btn" style="width: 80px;" id="btnCancel" onclick="moveSearchMain();">취소</button>
 	</div>
 </body>
 
@@ -192,8 +197,11 @@ $( document ).ready(function() {
 	 });
 	 
 		
-	});
-	
+	});	
 });
+
+function moveSearchMain() {
+	location.href="/common/searchPage";
+}
 </script>
 </html>
